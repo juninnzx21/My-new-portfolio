@@ -122,16 +122,37 @@
       el.style.width = '0';
     });
 
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        progress.forEach(el => {
-          el.style.width = el.dataset.targetWidth;
+    const animateSkills = () => {
+      progress.forEach(el => {
+        el.style.width = el.dataset.targetWidth;
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateSkills();
+            observer.unobserve(entry.target);
+          }
         });
-        this.destroy();
-      }
-    });
+      }, {
+        threshold: 0.25
+      });
+
+      observer.observe(item);
+    } else if (typeof Waypoint !== 'undefined') {
+      new Waypoint({
+        element: item,
+        offset: '80%',
+        handler: function() {
+          animateSkills();
+          this.destroy();
+        }
+      });
+    } else {
+      animateSkills();
+    }
   });
 
   /**
@@ -234,4 +255,3 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-
