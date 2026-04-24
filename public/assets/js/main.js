@@ -57,6 +57,13 @@
       "about.whatsapp": "WhatsApp Contact",
       "skills.title": "Skills",
       "skills.intro": "I prefer to present my stack by real usage and delivery context instead of inflated percentage bars. These are the technologies and responsibilities that best represent my current profile.",
+      "skills.featureLabel": "Core Profile",
+      "skills.featureTitle": "Practical stack for real operations",
+      "skills.featureText": "My strongest work lives where backend logic, business workflows, and maintainable interfaces need to operate together without friction.",
+      "skills.featurePoint1": "Laravel and PHP for business rules and system flows",
+      "skills.featurePoint2": "Responsive interfaces built for daily operational usage",
+      "skills.featurePoint3": "Database work, validation, and CRUD reliability",
+      "skills.featurePoint4": "Support mindset shaped by production maintenance",
       "skills.card1Title": "Backend",
       "skills.card1Text": "Laravel and PHP for business rules, CRUD flows, authentication, and production-facing internal tools.",
       "skills.card2Title": "Frontend",
@@ -71,6 +78,12 @@
       "skills.card6Text": "Docker-based local environments, Linux familiarity, and infrastructure awareness shaped by technical support work.",
       "build.title": "What I Build",
       "build.intro": "I am most valuable when the work requires clear logic, operational reliability, and practical delivery for business teams.",
+      "build.summaryLabel": "How I add value",
+      "build.summaryTitle": "Software shaped by workflow, not only by screens",
+      "build.summaryText": "I work best on projects where software needs to support daily operations, reduce friction, and stay maintainable over time.",
+      "build.point1": "Clear business logic and predictable behavior",
+      "build.point2": "Interfaces designed for practical team usage",
+      "build.point3": "Maintenance and support with production awareness",
       "build.card1Title": "Internal Tools",
       "build.card1Text": "Admin areas, task systems, forms, and CRUD interfaces that help teams work with less friction.",
       "build.card2Title": "Business Systems",
@@ -141,6 +154,13 @@
       "about.whatsapp": "Contato no WhatsApp",
       "skills.title": "Competencias",
       "skills.intro": "Prefiro apresentar minha stack por contexto real de uso e entrega, em vez de barras infladas de porcentagem. Estas sao as tecnologias e responsabilidades que melhor representam meu perfil hoje.",
+      "skills.featureLabel": "Perfil Central",
+      "skills.featureTitle": "Stack pratica para operacoes reais",
+      "skills.featureText": "Meu trabalho mais forte aparece quando logica backend, fluxos de negocio e interfaces manuteniveis precisam funcionar juntos sem atrito.",
+      "skills.featurePoint1": "Laravel e PHP para regras de negocio e fluxos de sistema",
+      "skills.featurePoint2": "Interfaces responsivas pensadas para uso operacional diario",
+      "skills.featurePoint3": "Banco de dados, validacoes e confiabilidade em CRUD",
+      "skills.featurePoint4": "Mentalidade de suporte moldada por manutencao em producao",
       "skills.card1Title": "Backend",
       "skills.card1Text": "Laravel e PHP para regras de negocio, fluxos CRUD, autenticacao e ferramentas internas em producao.",
       "skills.card2Title": "Frontend",
@@ -155,6 +175,12 @@
       "skills.card6Text": "Ambientes locais com Docker, familiaridade com Linux e visao de infraestrutura fortalecida pelo suporte tecnico.",
       "build.title": "O que eu construo",
       "build.intro": "Sou mais valioso quando o trabalho exige logica clara, confiabilidade operacional e entrega pratica para times de negocio.",
+      "build.summaryLabel": "Como gero valor",
+      "build.summaryTitle": "Software moldado por fluxo, nao so por telas",
+      "build.summaryText": "Meu melhor trabalho aparece em projetos onde o software precisa sustentar a operacao diaria, reduzir atrito e continuar manutenivel com o tempo.",
+      "build.point1": "Logica de negocio clara e comportamento previsivel",
+      "build.point2": "Interfaces desenhadas para uso pratico das equipes",
+      "build.point3": "Manutencao e suporte com visao de producao",
       "build.card1Title": "Ferramentas Internas",
       "build.card1Text": "Areas administrativas, sistemas de tarefas, formularios e interfaces CRUD que ajudam equipes a trabalhar com menos atrito.",
       "build.card2Title": "Sistemas de Negocio",
@@ -203,6 +229,22 @@
     });
   }
 
+  function getStoredLanguage() {
+    try {
+      return localStorage.getItem('portfolio-language');
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storeLanguage(lang) {
+    try {
+      localStorage.setItem('portfolio-language', lang);
+    } catch (error) {
+      // Ignore storage errors in restricted browsing modes.
+    }
+  }
+
   function applyTranslations(lang) {
     const dictionary = translations[lang] || translations.en;
     root.setAttribute('lang', lang === 'pt-BR' ? 'pt-BR' : 'en');
@@ -227,7 +269,7 @@
       button.classList.toggle('active', button.dataset.lang === lang);
     });
 
-    localStorage.setItem('portfolio-language', lang);
+    storeLanguage(lang);
     initTyped();
   }
 
@@ -378,12 +420,13 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-  document.querySelectorAll('.lang-btn').forEach((button) => {
-    button.addEventListener('click', () => {
-      applyTranslations(button.dataset.lang);
-    });
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('.lang-btn');
+    if (!button) return;
+    event.preventDefault();
+    applyTranslations(button.dataset.lang);
   });
 
-  const savedLanguage = localStorage.getItem('portfolio-language') || 'en';
-  window.addEventListener('load', () => applyTranslations(savedLanguage));
+  const savedLanguage = getStoredLanguage() || 'en';
+  document.addEventListener('DOMContentLoaded', () => applyTranslations(savedLanguage));
 })();
