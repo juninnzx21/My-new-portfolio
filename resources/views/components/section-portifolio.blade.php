@@ -47,6 +47,30 @@
             </div>
           </div>
           {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/crud2.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Vue App</h4>
+                <p>Product Catalog Dashboard</p>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/projectvite/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/imp_finc(2).png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Landing Page</h4>
+                <p>HIT DIG Presentation</p>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/hitdig/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-4.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
         </div>
         {{-- <!-- End Portfolio Container --> --}}
       </div>
