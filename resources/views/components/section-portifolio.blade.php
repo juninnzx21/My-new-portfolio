@@ -16,7 +16,13 @@
           <div class="portfolio-elegant-body">
             <span class="portfolio-card-index">01</span>
             <h3>Course Catalog Management</h3>
+            <p class="portfolio-card-problem" data-i18n="projects.card1Problem">Problem solved: organize course records with a simple and editable workflow.</p>
             <p data-i18n="projects.card1Solution">Built a PHP CRUD flow with real-time persistence for creating, editing, and removing courses.</p>
+            <div class="portfolio-card-tags">
+              <span>CRUD</span>
+              <span>Database</span>
+              <span>Admin Flow</span>
+            </div>
             <div class="portfolio-card-actions">
               <a href="https://www.juninnzxtec.com.br/all-portifolios/site2/" title="Live Demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo</a>
               <a href="projeto" title="Case Study" class="btn btn-ghost-dark btn-sm">Case Study</a>
@@ -32,7 +38,13 @@
           <div class="portfolio-elegant-body">
             <span class="portfolio-card-index">02</span>
             <h3>Institutional Business Website</h3>
+            <p class="portfolio-card-problem" data-i18n="projects.card2Problem">Problem solved: present a business offer clearly and capture leads in a responsive interface.</p>
             <p data-i18n="projects.card2Solution">Structured service pages, CTAs, content blocks, and contact flow for conversion-oriented browsing.</p>
+            <div class="portfolio-card-tags">
+              <span>Landing Pages</span>
+              <span>Lead Capture</span>
+              <span>Responsive UI</span>
+            </div>
             <div class="portfolio-card-actions">
               <a href="https://www.juninnzxtec.com.br/all-portifolios/site/" title="Live Demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo</a>
               <a href="projeto-1" title="Case Study" class="btn btn-ghost-dark btn-sm">Case Study</a>
@@ -48,7 +60,13 @@
           <div class="portfolio-elegant-body">
             <span class="portfolio-card-index">03</span>
             <h3>Task Management System</h3>
+            <p class="portfolio-card-problem" data-i18n="projects.card3Problem">Problem solved: manage tasks, user actions, and categories through a structured application flow.</p>
             <p data-i18n="projects.card3Solution">Implemented auth, task CRUD, categories, profile screens, and responsive UI using Laravel and Blade.</p>
+            <div class="portfolio-card-tags">
+              <span>Auth</span>
+              <span>Tasks</span>
+              <span>Laravel UI</span>
+            </div>
             <div class="portfolio-card-actions">
               <a href="https://www.juninnzxtec.com.br/login" title="Live Demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo</a>
               <a href="projeto-2" title="Case Study" class="btn btn-ghost-dark btn-sm">Case Study</a>

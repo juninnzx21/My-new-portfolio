@@ -27,6 +27,21 @@
                 <span class="hero-proof-pill" data-i18n="hero.pill3">Remote Ready</span>
             </div>
 
+            <div class="hero-metrics-row">
+                <div class="hero-metric-item">
+                    <span class="hero-metric-label">01</span>
+                    <strong data-i18n="hero.metric1">Backend-first delivery</strong>
+                </div>
+                <div class="hero-metric-item">
+                    <span class="hero-metric-label">02</span>
+                    <strong data-i18n="hero.metric2">Operational data workflows</strong>
+                </div>
+                <div class="hero-metric-item">
+                    <span class="hero-metric-label">03</span>
+                    <strong data-i18n="hero.metric3">Practical dev workflow</strong>
+                </div>
+            </div>
+
             <a href="{{ asset('Junior_Rodrigues_Resume.txt') }}" class="hero-resume-link" download data-i18n="hero.ctaResume">Download Resume</a>
         </div>
 
