@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>      
-        <title>Portifolio Online</title>
+    <title>Online Portfolio</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-Import-default-header-portifolio />
@@ -38,7 +38,7 @@
             success: function (response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Sucesso!',
+                    title: 'Success!',
                     text: response.message,
                     confirmButtonText: 'OK',
                 });
@@ -50,14 +50,14 @@
                     let errorMessages = Object.values(errors).join('\n');
                     Swal.fire({
                         icon: 'error',
-                        title: 'Erro de Validação!',
+                        title: 'Validation Error!',
                         text: errorMessages,
                     });
                 } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Erro!',
-                        text: xhr.responseJSON?.message || 'Algo deu errado. Tente novamente.',
+                        text: xhr.responseJSON?.message || 'Something went wrong. Please try again.',
                     });
                 }
             },

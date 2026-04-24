@@ -8,7 +8,7 @@
             Junior Rodrigues
         </h2>
         <p>
-            I'm <span class="typed" data-typed-items="Developer, Full Stack, Legal Entity TI">Developer</span>
+            I'm <span class="typed" data-typed-items="Developer, Full Stack Developer, PHP Developer">Developer</span>
             <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
         </p>
     </div>

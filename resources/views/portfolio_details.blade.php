@@ -5,7 +5,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">      
 
 
-        <title>Portifolio Online</title>
+        <title>Online Portfolio</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -73,18 +73,17 @@
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Cadastro de Cursos</li>
-                <li><strong>Client</strong>: N/a</li>
+                <li><strong>Category</strong>: Course Catalog</li>
+                <li><strong>Client</strong>: N/A</li>
                 <li><strong>Project date</strong>: 10 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site2/index.php">URL do Portifolio</a></li>
+                <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site2/">Portfolio URL</a></li>
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Explanation of why the system was created.</h2>
+              <h2>Why this system was created</h2>
               <p>
-              System created for studies and portfolio purposes where a push and poll is done with
-              HTML5, CSS, BOOTSTRAP, PHP and JAVASCRIT, where it is possible to create a new course in the list,
-              edit an existing course and even delete a specific course, all of this being changed and saved in the database in real time after clicking confirm each step.
+              This system was created for study and portfolio purposes. It was built with HTML5, CSS, Bootstrap, PHP, and JavaScript, and it allows users to create, edit, and delete courses from a list.
+              All changes are saved to the database in real time after each action is confirmed.
               </p>
             </div>
           </div>

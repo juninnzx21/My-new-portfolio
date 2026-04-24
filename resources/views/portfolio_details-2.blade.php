@@ -7,7 +7,7 @@
         <meta content="" name="keywords">
       
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-        <title>Portifolio Online</title>
+        <title>Online Portfolio</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -74,48 +74,44 @@
           <div class="col-lg-4">
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
-              <h4>To log in to the system, you must create an account when you reach the login area and click register</h4>
+              <h4>To access the system, create an account on the login page and click Register.</h4>
               <ul>
-                <li><strong>Category</strong>: Task Log and Editing or Deleting</li>
-                <li><strong>Client</strong>: N/a</li>
+                <li><strong>Category</strong>: Task Management System</li>
+                <li><strong>Client</strong>: N/A</li>
                 <li><strong>Project date</strong>: 03 February, 2025</li>
                 <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/login">Portfolio URL</a></li>
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Explanation of what the system was created for.</h2>
+              <h2>Why this system was created</h2>
               <p>
-                This project was originally developed to showcase my Laravel skills.
+                This project was created to showcase my Laravel skills.
               </p>
                            
               <p>
-                This project is developed using Laravel, Blade, Bootstrap, PHP, Css, Jquery, SweetAlert and JavaScript. It contains several features including:
+                This project was developed using Laravel, Blade, Bootstrap, PHP, CSS, jQuery, SweetAlert, and JavaScript. It includes several features, such as:
               </p>
               
               <ul>
                   <li>Login page with authentication</li>
-                  <li>Personal Information Edit Page</li>
+                  <li>Profile editing page</li>
                   <li>Logout system</li>
-                  <li>
-                    User registration page
-                  </li>
-                  <li>
-                    To recover password
-                  </li>
+                  <li>User registration page</li>
+                  <li>Password recovery</li>
                   <li>
                     Tasks page
                     <ul>
-                      <li>Parte de criação de novas tarefas</li>
-                      <li>Edição de tarefas</li>
-                      <li>Exclusão de tarefas</li>
-                      <li>Criação de novas categorias</li>
+                      <li>Create new tasks</li>
+                      <li>Edit tasks</li>
+                      <li>Delete tasks</li>
+                      <li>Create new categories</li>
                     </ul>
                   </li>
                   
               </ul>
               
             <p>
-                The design is responsive, ensuring an optimized browsing experience for different devices.
+                The design is responsive, ensuring an optimized browsing experience across different devices.
             </p>
             
             </div>

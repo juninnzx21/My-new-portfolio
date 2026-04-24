@@ -7,7 +7,7 @@
         <meta content="" name="keywords">
       
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-        <title>Portifolio Online</title>
+        <title>Online Portfolio</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -81,45 +81,43 @@
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Cadastro de Cursos</li>
-                <li><strong>Client</strong>: N/a</li>
+                <li><strong>Category</strong>: Business Website</li>
+                <li><strong>Client</strong>: N/A</li>
                 <li><strong>Project date</strong>: 10 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site/index.php">Portfolio URL</a></li>
+                <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site/">Portfolio URL</a></li>
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Explanation of what the system was created for.</h2>
+              <h2>Why this project was created</h2>
               <p>
-                  This project was originally developed to showcase the work and services offered by a company. 
-                  However, due to the company's decision to close its doors after filing for bankruptcy, 
-                  the project was never completed.
+                  This project was originally developed to present the work and services offered by a company.
+                  However, because the company closed its operations after financial difficulties, the project was never completed.
               </p>
               
               <p>
-                  As a result, I have chosen to keep it as part of my portfolio, ensuring that all confidential 
-                  or copyright-infringing information related to the company is removed. 
-                  The system now serves as a demonstration of my skills and ability to develop complete web solutions.
+                  I decided to keep it as part of my portfolio after removing confidential and copyright-sensitive material.
+                  It now serves as a demonstration of my skills and ability to build complete web solutions.
               </p>
               
               <p>
-                  This project was developed using HTML5, CSS, Bootstrap, PHP, and JavaScript. It contains several features, including:
+                  This project was developed using HTML5, CSS, Bootstrap, PHP, and JavaScript. It includes several features, such as:
               </p>
               
               <ul>
-                  <li>Contact Form Integrated with Google Forms;</li>
-                  <li>Interactive Cards and Modals;</li>
+                  <li>Contact form integrated with Google Forms;</li>
+                  <li>Interactive cards and modals;</li>
                   <li>
                       Several well-structured pages and sections, such as:
                       <ul>
-                          <li>Information: relevant details about the project theme;</li>
-                          <li>Testimonials: user testimonials and reviews;</li>
-                          <li>Among other relevant content.</li>
+                          <li>Information pages with relevant project content;</li>
+                          <li>Testimonials and reviews;</li>
+                          <li>Additional supporting content.</li>
                       </ul>
                   </li>
               </ul>
               
             <p>
-                The design is responsive, ensuring an optimized browsing experience for different devices.
+                The design is responsive, ensuring an optimized browsing experience across different devices.
             </p>
             
             </div>
