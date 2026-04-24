@@ -1,16 +1,19 @@
-# To prevent access to .env and other files
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/all-portifolios(?:/|$)
+RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
 <Files .*>
-# Apache 2.2
 <IfModule !mod_authz_core.c>
 Order deny,allow
 Deny from all
 </IfModule>
-# Apache 2.4
 <IfModule mod_authz_core.c>
 Require all denied
 </IfModule>
 </Files>
-
-<IfModule mod_alias.c>
-RedirectMatch 301 ^/$ http://juninnzxtec.com.br
-</IfModule>

@@ -15,7 +15,7 @@
               <h4>Course Catalog Management</h4>
               <div class="portfolio-stack">PHP / Bootstrap / MySQL</div>
               <p data-i18n="projects.card1Solution">Built a PHP CRUD flow with real-time persistence for creating, editing, and removing courses.</p>
-              <a href="https://www.juninnzxtec.com.br/all-portifolios/site2/index.php" title="Live Demo" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+              <a href="https://www.juninnzxtec.com.br/all-portifolios/site2/" title="Live Demo" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
               <a href="projeto" title="Case Study" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div>
@@ -28,7 +28,7 @@
               <h4>Institutional Business Website</h4>
               <div class="portfolio-stack">HTML / Bootstrap / JavaScript</div>
               <p data-i18n="projects.card2Solution">Structured service pages, CTAs, content blocks, and contact flow for conversion-oriented browsing.</p>
-              <a href="https://www.juninnzxtec.com.br/all-portifolios/site/index.php" title="Live Demo" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+              <a href="https://www.juninnzxtec.com.br/all-portifolios/site/" title="Live Demo" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
               <a href="projeto-1" title="Case Study" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div>

@@ -1,28 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand rounded-circle" href="<?=base_url()?>">
-            <img class="rounded-circle" src="https://as2.ftcdn.net/v2/jpg/01/98/17/27/1000_F_198172717_LDcPbVValZZPGzoADmTQXQewupHVqKs1.jpg" class="img-fluid" style="max-height: 80px">
+<nav class="navbar navbar-expand-lg mc-navbar sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="<?= base_url() ?>">
+            <span class="brand-mark"><i class="fas fa-chart-line"></i></span>
+            <span>
+                MulticredBH
+                <small class="d-block text-white-50 fw-normal">Projeto institucional demo</small>
+            </span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 text-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mcNavbar" aria-controls="mcNavbar" aria-expanded="false" aria-label="Alternar navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="<?=base_url()?>">Inicio</a>
-                <a class="nav-link" href="<?=base_url()?>sobre">Sobre</a>
-                <a class="nav-link" href="<?=base_url()?>servicos">Serviços</a>
-                <a class="nav-link" href="<?=base_url()?>atendimento-ao-cliente">Atendimento ao
-                    Cliente</a>
+        <div class="collapse navbar-collapse" id="mcNavbar">
+            <div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                <a class="nav-link" href="<?= base_url() ?>">Início</a>
+                <a class="nav-link" href="<?= base_url() ?>sobre">Sobre</a>
+                <a class="nav-link" href="<?= base_url() ?>servicos">Serviços</a>
+                <a class="nav-link" href="<?= base_url() ?>atendimento-ao-cliente">Atendimento</a>
+                <a class="nav-link" href="<?= base_url() ?>login">Login</a>
+                <a class="mc-btn-primary ms-lg-3 mt-3 mt-lg-0" href="<?= base_url() ?>atendimento-ao-cliente">
+                    <i class="fas fa-comments"></i>
+                    Fale conosco
+                </a>
             </div>
-           
         </div>
-     
-    <div >
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
-            <div class="navbar-nav">
-                <a class="nav-link" href="<?=base_url()?>login">Login</a>
-            </div>
-        </div>   
-    </div> 
+    </div>
 </nav>
