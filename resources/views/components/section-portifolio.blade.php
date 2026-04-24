@@ -97,6 +97,18 @@
           {{-- <!-- End Portfolio Item --> --}}
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
             <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Trading Intelligence</h4>
+                <p>Market Decision AI</p>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/trade-intelligence-hub/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-8.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
               <img src="assets/img/portfolio/Portifolio1.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Legacy Website</h4>
