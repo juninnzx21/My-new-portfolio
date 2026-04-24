@@ -12,8 +12,8 @@
             <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
         </p>
         <div class="hero-actions">
-            <a href="{{ url('/cv.html') }}" class="hero-btn-primary">View Online CV</a>
-            <a href="{{ url('/Junior_Rodrigues_Professional_Summary.txt') }}" download class="hero-btn-secondary">Download Summary</a>
+            <a href="{{ url('/Junior_Rodrigues_CV.pdf') }}" target="_blank" rel="noopener noreferrer" class="hero-btn-primary">View CV PDF</a>
+            <a href="{{ url('/Junior_Rodrigues_CV.pdf') }}" download class="hero-btn-secondary">Download CV</a>
         </div>
     </div>
     
