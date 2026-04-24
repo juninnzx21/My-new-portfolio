@@ -1,64 +1,76 @@
 <section id="about" class="about section">
 
-    {{-- <!-- Section Title --> --}}
     <div class="container section-title" data-aos="fade-up">
-      <h2>About</h2>
-      <p>Since I was little, my interest in computers dominated my way of thinking and acting. The way computers worked made me even more curious! I managed to channel this interest and in addition to my professional desire, it also became a hobby. I intend to continue this journey as a Dev, still not knowing which area I will work in, but with the certainty that I will never stop learning as a developer!</p>
+      <h2 data-i18n="about.title">About</h2>
+      <p data-i18n="about.intro">I am a Full Stack Developer based in Belo Horizonte, Brazil, with hands-on experience building and maintaining business systems, internal tools, and production web applications. My work combines software delivery, operational support, and continuous improvement of live systems.</p>
     </div>
-    {{-- <!-- End Section Title --> --}}
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row gy-4 justify-content-center">
-        <div class="col-lg-4">
-          <img src="assets/img/eu.jpg" class="img-fluid sobrefoto" style="border-radius: 20px;" alt="">
+      <div class="about-layout">
+        <div class="about-photo-card">
+          <img src="assets/img/eu.jpg" class="img-fluid sobrefoto" alt="Junior Rodrigues portrait">
         </div>
-        <div class="col-lg-8 content">
-          <h2>Developer Full Stack || Web Developer.</h2>
-          <p class="fst-italic py-3">
-            He currently works as a Junior PJ Developer, working as Full Stack, preventive maintenance and logistical support. I also graduate in Systems Analysis and Development and venture into some projects like this portfolio.
+
+        <div class="about-content-card">
+          <div class="about-heading-row">
+            <div>
+              <span class="mini-label" data-i18n="about.badge">Profile Snapshot</span>
+              <h2 data-i18n="about.role">Full Stack PHP/Laravel Developer</h2>
+            </div>
+            <div class="availability-chip" data-i18n="about.availabilityChip">Open to remote work</div>
+          </div>
+
+          <p class="about-lead" data-i18n="about.lead">
+            I build maintainable web applications with Laravel, PHP, MySQL, JavaScript, jQuery, Bootstrap, and Docker. My background also includes production support, system maintenance, troubleshooting, and collaboration with business teams.
           </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>6 July 2001</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>  <span><a target="_blank" href="https://www.juninnzxtec.com.br">www.juninnzxtec.com.br</a></span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span><a target="_blank" href="https://api.whatsapp.com/send?phone=5531993239198&amp;"> 31 9 9323-9198 </a></span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Belo Horizonte, BRA</span></li>
-              </ul>
+
+          <p data-i18n="about.body">
+            I am currently studying Systems Analysis and Development and positioning myself for backend and full stack opportunities in Brazil and international markets, especially roles involving Laravel applications, internal systems, APIs, and operational workflows.
+          </p>
+
+          <div class="about-fact-grid">
+            <div class="about-fact-card">
+              <span data-i18n="about.factLocationLabel">Location</span>
+              <strong data-i18n="about.factLocationValue">Belo Horizonte, Brazil</strong>
             </div>
-            <div class="col-lg-6">
-              <ul class="personal-info">
-                <li>
-                  <i class="bi bi-chevron-right"></i> 
-                  <strong>Age:</strong> 
-                  <span>23</span>
-                </li>
-                <li>
-                  <i class="bi bi-chevron-right"></i> 
-                  <strong>Degree:</strong> 
-                  <span>DEV Full Stack PHP</span>
-                </li>
-                <li>
-                  <i class="bi bi-chevron-right"></i> 
-                  <strong>Email:</strong> 
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contatojuninnzx@gmail.com" target="_blank">Open in Gmail</a> |
-                  <a href="https://compose.mail.yahoo.com/?to=contatojuninnzx@gmail.com" target="_blank">Open in Yahoo</a> |
-                  <a href="https://outlook.live.com/mail/0/deeplink/compose?to=contatojuninnzx@gmail.com" target="_blank">Open in Outlook</a>
-                </li>
-                     
-                <li>
-                  <i class="bi bi-chevron-right"></i> 
-                  <strong>Freelance / PJ / CLT:</strong> 
-                  <span>Available</span>
-                </li>
-              </ul>
+            <div class="about-fact-card">
+              <span data-i18n="about.factFocusLabel">Focus</span>
+              <strong data-i18n="about.factFocusValue">Backend and full stack systems</strong>
             </div>
-            
+            <div class="about-fact-card">
+              <span data-i18n="about.factStackLabel">Primary Stack</span>
+              <strong data-i18n="about.factStackValue">Laravel, PHP, MySQL, JavaScript</strong>
+            </div>
+            <div class="about-fact-card">
+              <span data-i18n="about.factLanguageLabel">Languages</span>
+              <strong data-i18n="about.factLanguageValue">Portuguese, English in progress</strong>
+            </div>
+            <div class="about-fact-card">
+              <span data-i18n="about.factAvailabilityLabel">Availability</span>
+              <strong data-i18n="about.factAvailabilityValue">Remote, hybrid, contract, full-time</strong>
+            </div>
+            <div class="about-fact-card">
+              <span data-i18n="about.factContactLabel">Contact</span>
+              <strong><a href="mailto:contatojuninnzx@gmail.com">contatojuninnzx@gmail.com</a></strong>
+            </div>
+          </div>
+
+          <div class="about-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/junior-rodrigues-68961b288/" class="about-link-card">
+              <i class="bi bi-linkedin"></i>
+              <span data-i18n="about.linkedin">LinkedIn Profile</span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/juninnzx21" class="about-link-card">
+              <i class="bi bi-github"></i>
+              <span data-i18n="about.github">GitHub Profile</span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5531993239198&amp;" class="about-link-card">
+              <i class="bi bi-whatsapp"></i>
+              <span data-i18n="about.whatsapp">WhatsApp Contact</span>
+            </a>
           </div>
         </div>
       </div>
-
     </div>
 
   </section>

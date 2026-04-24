@@ -1,0 +1,63 @@
+Junior Rodrigues
+Full Stack PHP/Laravel Developer
+Belo Horizonte, MG - Brazil
+Email: contatojuninnzx@gmail.com
+LinkedIn: https://www.linkedin.com/in/junior-rodrigues-68961b288/
+GitHub: https://github.com/juninnzx21
+Portfolio: https://www.juninnzxtec.com.br
+
+Professional Summary
+Full Stack PHP Developer focused on Laravel applications, internal tools, business systems, and production support. Experience with backend logic, responsive interfaces, operational workflows, bug fixing, and continuous system improvement.
+
+Core Stack
+- PHP
+- Laravel
+- CodeIgniter
+- Blade
+- JavaScript
+- jQuery
+- Bootstrap
+- MySQL
+- MariaDB
+- Docker
+- Git
+
+Professional Experience
+
+Junior Full Stack PHP Developer
+MKT - Elite Solucoes
+03/2023 - 12/2023
+- Built and maintained PHP web applications with CodeIgniter 3 for business workflows.
+- Worked across backend and frontend layers with PHP, MySQL, JavaScript, jQuery, HTML, CSS, and Bootstrap.
+- Delivered fixes, feature updates, and improvements in active systems.
+- Supported database-driven application logic and daily operational routines.
+
+IT Technician Level 2
+Santa Casa BH
+2022 - 2023
+- Provided remote and onsite technical support in a high-demand environment.
+- Performed preventive maintenance and operational troubleshooting.
+- Strengthened reliability, issue diagnosis, and service continuity skills.
+
+N1 Support Analyst
+QA - IT Answer
+03/2024 - 12/2024
+- Supported end users by resolving hardware, software, and connectivity issues.
+- Helped maintain operational continuity through structured support routines.
+- Contributed to process improvement and faster issue resolution.
+
+Education
+Systems Analysis and Development
+UNOPAR Minas
+2022 - in progress
+
+Selected Projects
+
+Task Management System
+- Laravel and Blade application with authentication, task CRUD, categories, and profile management.
+
+Course Catalog Management
+- PHP CRUD project for creating, editing, and removing course records with database persistence.
+
+Institutional Business Website
+- Responsive business website focused on service presentation, lead capture, and conversion-oriented content structure.

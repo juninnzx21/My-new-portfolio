@@ -1,126 +1,76 @@
 {{-- <!-- Skills Section --> --}}
 <section id="skills" class="skills section light-background">
 
-    <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Below, I have added some skills that I have acquired throughout this journey in search of becoming a returner. They are willing to agree with the percentage of experts who believe in each of them.</p>
-    </div><!-- End Section Title -->
+        <h2 data-i18n="skills.title">Skills</h2>
+        <p data-i18n="skills.intro">I prefer to present my stack by real usage and delivery context instead of inflated percentage bars. These are the technologies and responsibilities that best represent my current profile.</p>
+    </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="mt-3 mb-0">HTML5</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-server"></i></div>
+                <h3 data-i18n="skills.card1Title">Backend</h3>
+                <p data-i18n="skills.card1Text">Laravel and PHP for business rules, CRUD flows, authentication, and production-facing internal tools.</p>
+                <div class="skill-tags">
+                    <span>PHP</span>
+                    <span>Laravel</span>
+                    <span>CodeIgniter</span>
                 </div>
-    
-                <p class="mt-3 mb-0">CSS</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">MySQL</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">JQuery</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Bootstrap 5</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Docker Composer</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Infraestrutura</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                </div>
-    
-                <!-- Novas Skills -->
-                <p class="mt-3 mb-0">GitLab</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">JavaScript</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Node.js</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">AJAX</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
-                </div>
-    
             </div>
-            <div class="col-md-6">
-                <p class="mt-3 mb-0">Suporte Técnico</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-window"></i></div>
+                <h3 data-i18n="skills.card2Title">Frontend</h3>
+                <p data-i18n="skills.card2Text">Blade, Bootstrap, JavaScript, jQuery, and responsive UI work designed for practical day-to-day business usage.</p>
+                <div class="skill-tags">
+                    <span>Blade</span>
+                    <span>Bootstrap</span>
+                    <span>JavaScript</span>
                 </div>
-    
-                <p class="mt-3 mb-0">PHP</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-database"></i></div>
+                <h3 data-i18n="skills.card3Title">Data Layer</h3>
+                <p data-i18n="skills.card3Text">Relational data modeling, data persistence, validation flows, and operational database work with MySQL and MariaDB.</p>
+                <div class="skill-tags">
+                    <span>MySQL</span>
+                    <span>MariaDB</span>
+                    <span>SQL</span>
                 </div>
-    
-                <p class="mt-3 mb-0">Manutenção de Computadores</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                <h3 data-i18n="skills.card4Title">Workflow and Support</h3>
+                <p data-i18n="skills.card4Text">Bug fixing, maintenance, operational support, issue triage, and iterative improvement of live systems.</p>
+                <div class="skill-tags">
+                    <span>Maintenance</span>
+                    <span>Support</span>
+                    <span>Troubleshooting</span>
                 </div>
-    
-                <p class="mt-3 mb-0">Code Igniter 3</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-git"></i></div>
+                <h3 data-i18n="skills.card5Title">Dev Workflow</h3>
+                <p data-i18n="skills.card5Text">Version control, branch-based delivery, repository hygiene, and practical collaboration using GitHub and GitLab.</p>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>GitLab</span>
                 </div>
-    
-                <p class="mt-3 mb-0">Manutenção de sistemas</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-                <p class="mt-3 mb-0">Docker</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">GIT</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Github</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <!-- Novas Skills -->
-                <p class="mt-3 mb-0">React</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">MariaDB</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-    
-                <p class="mt-3 mb-0">Linux</p>
-                <div class="progress">
-                    <div class="progress-bar" data-anime="left" role="progressbar" aria-label="Example with label" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bi bi-box-seam"></i></div>
+                <h3 data-i18n="skills.card6Title">Environment</h3>
+                <p data-i18n="skills.card6Text">Docker-based local environments, Linux familiarity, and infrastructure awareness shaped by technical support work.</p>
+                <div class="skill-tags">
+                    <span>Docker</span>
+                    <span>Linux</span>
+                    <span>Infra Support</span>
                 </div>
             </div>
         </div>

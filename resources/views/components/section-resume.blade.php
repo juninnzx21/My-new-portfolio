@@ -2,8 +2,8 @@
 <section id="resume" class="resume section">
 {{-- <!-- Section Title --> --}}
     <div class="container section-title" data-aos="fade-up">
-        <h2>Summary</h2>
-        <p>I am currently seeking new opportunities and challenges in the development field, which has broadened my vision and enriched my skills in web development. I am motivated by innovation and the constant search for knowledge. My goal is to combine my experience and learning acquired over the years dedicated to the development, implementation and creation of websites and systems, delivering IT solutions capable of driving organizational success.</p>  </div>
+        <h2>Experience</h2>
+        <p>I am building my career around practical software delivery: developing internal systems, improving business workflows, supporting live environments, and shipping maintainable web applications with a backend-first mindset.</p>  </div>
     {{-- <!-- End Section Title --> --}}
 
     <div class="container">
@@ -11,21 +11,22 @@
         <div class="row">
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="resume-title">Sumary</h3>
+                <h3 class="resume-title">Profile</h3>
 
                 <div class="resume-item pb-0">
                 <h4>Junior Rodrigues</h4>
-                <p><em>Proactive and deadline-oriented, Junior Full Stack Developer with 5+ years of experience developing user-centric web solutions. Specialized in creating robust and functional applications, from initial concept to final delivery, with attention to detail and focus on the quality of the delivered product."</em></p>
+                <p><em>Full Stack PHP Developer focused on Laravel applications, internal tools, business systems, and production support. Strong interest in backend development, reliable delivery, and improving operational workflows through software.</em></p>
                 <ul>
-                <li>José Hemercedino de Miranda, 31, Belo Horizonte, MG - Brazil</li>
-                <li>+55 (31) 9572-7854</li>
+                <li>Belo Horizonte, MG - Brazil</li>
+                <li>+55 (31) 9 9323-9198</li>
                 <li>contatojuninnzx@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/junior-rodrigues-68961b288/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a></li>
                 </ul>
             </div>
             {{-- <!-- Edn Resume Item --> --}}
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
-            <h4>High School Completion</h4>
+            <h4>High School Diploma</h4>
             <h5>2016 - 2019</h5>
             <p><em>Frei Eustaquio State School, Santo Hipolito, MG</em></p>
             </div>
@@ -43,19 +44,17 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">Professional Experience</h3>
         <div class="resume-item">
-            <h4>Junior Developer full Stack</h4>
+            <h4>Junior Full Stack PHP Developer</h4>
             <h5>03/2023 - 12/2023</h5>
         <p>
-            <em>MKT - Elite Soluções, Belo Horizonte, MG </em>
+            <em>MKT - Elite Solucoes, Belo Horizonte, MG</em>
         </p>
         <ul>
-            <li>Full Stack PHP Developer with experience in the CodeIgniter 3 framework,</li>
-            <li>Skills in HTML5, CSS, Bootstrap 5, JavaScript, jQuery, React, AJAX and integration with APIs,</li>
-            <li>Advanced knowledge in databases such as MySQL, MariaDB and MongoDB,</li>
-            <li>Proficient in the use of tools such as Git, GitHub, GitLab, Docker and Docker Composer,</li>
-            <li>Experience in Linux environments, specialized in creating robust web applications,</li>
-            <li>Using relational and non-relational databases to meet the demands of different project contexts,</li>
-            <li>Ability to optimize performance, ensure data integrity and provide complete and adaptable solutions.</li>
+            <li>Built and maintained PHP web applications with CodeIgniter 3 for real business workflows.</li>
+            <li>Worked across backend and frontend layers using PHP, MySQL, JavaScript, jQuery, HTML, CSS, and Bootstrap.</li>
+            <li>Handled bug fixing, feature adjustments, and continuous improvements in active systems.</li>
+            <li>Integrated application logic with relational databases and day-to-day operational needs.</li>
+            <li>Worked with Git-based delivery flows and Linux-based environments.</li>
         </ul>
         </div>
         {{-- <!-- Edn Resume Item --> --}}
@@ -65,11 +64,10 @@
             <h5>2022 - 2023</h5>
             <p><em>Santa Casa BH, Belo Horizonte, MG</em></p>
             <ul>
-                <li>Answered calls from employees and service providers, solving problems remotely or scheduling in-person assistance when necessary.</li>
-                <li>Managed and prioritized calls, ensuring an efficient flow of in-person and remote service.</li>
-                <li>Performed preventive maintenance on equipment, ensuring the necessary support for hybrid and in-person teaching methods.</li>
-                <li>Performed daily checklists to verify the infrastructure and ensure the proper functioning of the services provided.</li>
-                <li>Contributed to the continuous improvement of the learning environment, ensuring the quality of the experience for students and teachers.</li>
+                <li>Provided remote and onsite technical support for users, employees, and service providers.</li>
+                <li>Managed incidents, prioritization, and operational troubleshooting in a high-demand environment.</li>
+                <li>Performed preventive maintenance and routine infrastructure checks.</li>
+                <li>Strengthened my ability to diagnose issues quickly and maintain service continuity.</li>
             </ul>
             
             </div>
@@ -77,12 +75,12 @@
             <div class="resume-item">
                 <h4>N1 Support Analyst</h4>
                 <h5>03/2024 - 12/2024</h5>
-                <p><em> Qa - IT ANSOWER, Belo Horizonte, MG</em></p>
+                <p><em>QA - IT Answer, Belo Horizonte, MG</em></p>
             <ul>
-                <li>Offered technical support to users, diagnosing and solving hardware and software problems.</li>
-                <li>Ensured the operational efficiency of systems, applying troubleshooting skills.</li>
-                <li>Performed network configurations and equipment maintenance to ensure the proper functioning of the infrastructure.</li>
-                <li>Collaborated in the continuous improvement of IT infrastructure, seeking to optimize processes and solutions.</li>
+                <li>Supported end users by diagnosing and resolving hardware, software, and connectivity issues.</li>
+                <li>Helped maintain operational continuity through troubleshooting and structured support routines.</li>
+                <li>Performed equipment maintenance and network-related configurations when required.</li>
+                <li>Contributed to process improvement and faster issue resolution in daily support operations.</li>
             </ul>
             
             
@@ -96,4 +94,3 @@
 
 </section>
 {{-- <!-- /Resume Section --> --}}
-  

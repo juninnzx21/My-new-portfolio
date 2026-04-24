@@ -1,19 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">      
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-      
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-        <title>Portifolio Online</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link href="https://fonts.googleapis.com" rel="preconnect">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-      
         <x-Import-default-header-portifolio />
     </head>
 
@@ -22,127 +11,107 @@
   <main class="main">
 
     <x-page-title />
-     {{-- <!-- Portfolio Details Section --> --}}
-     <section id="portfolio-details" class="portfolio-details section">
-
+    <section id="portfolio-details" class="portfolio-details section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
+        <div class="case-study-hero">
+          <div class="row gy-4 align-items-start">
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper init-swiper case-study-gallery">
+                <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                      "delay": 5000
+                    },
+                    "slidesPerView": "auto",
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
                   }
-                }
-              </script>
+                </script>
 
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(1).png" alt="">
+                <div class="swiper-wrapper align-items-center">
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(1).png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(2).png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(3).png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(4).png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(5).png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/imp_finc(6).png" alt="">
+                  </div>
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(2).png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(3).png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(4).png" alt="">
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(5).png" alt="">
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/imp_finc(6).png" alt="">
-                </div>
-
+                <div class="swiper-pagination"></div>
               </div>
-              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="col-lg-4">
+              <aside class="portfolio-info case-study-sidebar">
+                <h3>Project Snapshot</h3>
+                <ul>
+                  <li><strong>Category</strong>: Institutional Business Website</li>
+                  <li><strong>Project Type</strong>: Portfolio case study</li>
+                  <li><strong>Date</strong>: March 2020</li>
+                  <li><strong>Stack</strong>: HTML, CSS, Bootstrap, PHP, JavaScript</li>
+                  <li><strong>Live Project</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site/index.php" target="_blank" rel="noopener noreferrer">Open demo</a></li>
+                </ul>
+              </aside>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Cadastro de Cursos</li>
-                <li><strong>Client</strong>: N/a</li>
-                <li><strong>Project date</strong>: 10 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="https://www.juninnzxtec.com.br/all-portifolios/site/index.php">Portfolio URL</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Explanation of what the system was created for.</h2>
-              <p>
-                  This project was originally developed to showcase the work and services offered by a company. 
-                  However, due to the company's decision to close its doors after filing for bankruptcy, 
-                  the project was never completed.
-              </p>
-              
-              <p>
-                  As a result, I have chosen to keep it as part of my portfolio, ensuring that all confidential 
-                  or copyright-infringing information related to the company is removed. 
-                  The system now serves as a demonstration of my skills and ability to develop complete web solutions.
-              </p>
-              
-              <p>
-                  This project was developed using HTML5, CSS, Bootstrap, PHP, and JavaScript. It contains several features, including:
-              </p>
-              
-              <ul>
-                  <li>Contact Form Integrated with Google Forms;</li>
-                  <li>Interactive Cards and Modals;</li>
-                  <li>
-                      Several well-structured pages and sections, such as:
-                      <ul>
-                          <li>Information: relevant details about the project theme;</li>
-                          <li>Testimonials: user testimonials and reviews;</li>
-                          <li>Among other relevant content.</li>
-                      </ul>
-                  </li>
-              </ul>
-              
-            <p>
-                The design is responsive, ensuring an optimized browsing experience for different devices.
-            </p>
-            
-            </div>
-          </div>
-
         </div>
 
-      </div>
+        <div class="case-study-grid">
+          <section class="case-study-card">
+            <span class="case-label">Context</span>
+            <h2>A website designed to communicate services and capture leads</h2>
+            <p>This project started as a business presentation website intended to explain services clearly and encourage user contact through a structured and responsive interface.</p>
+          </section>
 
+          <section class="case-study-card">
+            <span class="case-label">Problem</span>
+            <p>The challenge was to organize information in a way that made the business look credible, easy to understand, and accessible across different devices.</p>
+          </section>
+
+          <section class="case-study-card">
+            <span class="case-label">Solution</span>
+            <p>I structured content sections, CTAs, layout blocks, and a contact flow with the goal of improving clarity and conversion. Even after the original company ceased operations, the project remained a strong portfolio example of institutional design and front-end organization.</p>
+          </section>
+
+          <section class="case-study-card">
+            <span class="case-label">Responsibilities</span>
+            <ul>
+              <li>Responsive page structure</li>
+              <li>Marketing-oriented content organization</li>
+              <li>Contact and lead capture flow</li>
+              <li>UI composition for desktop and mobile</li>
+            </ul>
+          </section>
+
+          <section class="case-study-card">
+            <span class="case-label">What I Learned</span>
+            <p>This case helped me understand how layout hierarchy, content sequencing, and visual clarity directly affect how users perceive trust and relevance on business websites.</p>
+          </section>
+        </div>
+      </div>
     </section>
-    {{-- <!-- /Portfolio Details Section --> --}}
 
   </main>
-  {{-- <!-- Scroll Top --> --}}
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-
   <div id="preloader"></div>
   <x-import-default-vendor-js/>
-    
   <x-footer-portifolio />
 
 </body>
-
 </html>
