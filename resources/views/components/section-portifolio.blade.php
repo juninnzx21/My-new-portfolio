@@ -40,7 +40,7 @@
               <img src="assets/img/portfolio/crud3.png  " class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Web App</h4>
-                <p>CRUD in Laravel and Blade</p>
+                <p>Task Management System</p>
                 <a href="https://www.juninnzxtec.com.br/login" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -87,8 +87,8 @@
             <div class="portfolio-content h-100">
               <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Operations System</h4>
-                <p>Finance and CRM Dashboard</p>
+                <h4>System Preview</h4>
+                <p>Finance and CRM System Preview</p>
                 <a href="https://www.juninnzxtec.com.br/all-portifolios/finance-system/" title="Open project preview" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-6.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
@@ -111,9 +111,9 @@
             <div class="portfolio-content h-100">
               <img src="assets/img/portfolio/Portifolio1.png" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Legacy Website</h4>
-                <p>Personal WordPress Portfolio</p>
-                <a href="https://my-portolio.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <h4>Personal Website</h4>
+                <p>WordPress Personal Portfolio</p>
+                <a href="http://my-portolio.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-7.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>

@@ -57,11 +57,11 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/cursos_full_stack_ 2.png" alt="">
+                  <img src="assets/img/portfolio/cursos_full_stack_2.png" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/cursos_full_stack_ 3.png" alt="">
+                  <img src="assets/img/portfolio/cursos_full_stack_3.png" alt="">
                 </div>
 
               </div>
