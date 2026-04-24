@@ -7,7 +7,7 @@
         <p>Below are some of the skills I have developed throughout my journey as a developer. The percentages represent my current confidence and practical experience with each technology.</p>
     </div><!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container skills-animation" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
             <div class="col-md-6">
                 <p class="mt-3 mb-0">HTML5</p>

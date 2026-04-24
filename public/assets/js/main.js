@@ -115,14 +115,21 @@
    */
   let skillsAnimation = document.querySelectorAll('.skills-animation');
   skillsAnimation.forEach((item) => {
+    let progress = item.querySelectorAll('.progress .progress-bar');
+
+    progress.forEach(el => {
+      el.dataset.targetWidth = el.style.width || (el.getAttribute('aria-valuenow') + '%');
+      el.style.width = '0';
+    });
+
     new Waypoint({
       element: item,
       offset: '80%',
       handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
+          el.style.width = el.dataset.targetWidth;
         });
+        this.destroy();
       }
     });
   });
@@ -227,5 +234,4 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
-
 
