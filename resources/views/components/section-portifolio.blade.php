@@ -4,7 +4,7 @@
     {{-- <!-- Section Title --> --}}
     <div class="container section-title" data-aos="fade-up">
       <h2>Portfolios</h2>
-      <p>Below are some of the projects featured in my portfolio.</p>
+      <p>Below are some of the projects and live systems featured in my portfolio.</p>
     </div>
     {{-- <!-- End Section Title --> --}}
     <div class="container">
@@ -67,6 +67,42 @@
                 <p>HIT DIG Presentation</p>
                 <a href="https://www.juninnzxtec.com.br/all-portifolios/hitdig/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-4.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Fleet Platform</h4>
+                <p>Meta Locadora Control Center</p>
+                <a href="https://controledefrotas.juninnzxtec.com.br/login" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-5.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Operations System</h4>
+                <p>Finance and CRM Dashboard</p>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/finance-system/" title="Open project preview" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-6.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/Portifolio1.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Legacy Website</h4>
+                <p>Personal WordPress Portfolio</p>
+                <a href="https://my-portolio.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="projeto-7.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
