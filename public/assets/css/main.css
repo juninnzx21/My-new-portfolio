@@ -1,17 +1,17 @@
 
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Cormorant Garamond", serif;
+  --nav-font: "Inter", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --background-color: #fcfaf5; /* Background color for the entire website, including individual sections */
+  --default-color: #27313f; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #142033; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #c38749; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -29,15 +29,15 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4fafd;
+  --background-color: #f4efe7;
   --surface-color: #ffffff;
 }
 
 .dark-background {
-  --background-color: #040b14;
+  --background-color: #0f1725;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #151f2b;
+  --surface-color: #1c2738;
   --contrast-color: #ffffff;
 }
 
@@ -133,7 +133,7 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background: linear-gradient(180deg, #10192a 0%, #162239 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -143,14 +143,16 @@ h6 {
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
-  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 18px 0 48px rgba(6, 10, 18, 0.16);
 }
 
 .header .profile-img img {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 6px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
 }
 
 .header .logo {
@@ -164,10 +166,11 @@ h6 {
 }
 
 .header .logo h1 {
-  font-size: 24px;
+  font-size: 30px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--heading-color);
+  letter-spacing: 0.02em;
 }
 
 .header .social-links {
@@ -175,11 +178,11 @@ h6 {
 }
 
 .header .social-links a {
-  font-size: 16px;
+  font-size: 15px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--default-color);
   margin: 0 2px;
   border-radius: 50%;
@@ -506,11 +509,12 @@ section,
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 54px;
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  line-height: 0.98;
 }
 
 .section-title h2:after {
@@ -526,6 +530,9 @@ section,
 
 .section-title p {
   margin-bottom: 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
 }
 
 /*--------------------------------------------------------------
@@ -1324,13 +1331,36 @@ section,
 }
 
 .hero:before {
-  background: linear-gradient(90deg, rgba(4, 11, 20, 0.76) 0%, rgba(4, 11, 20, 0.45) 45%, rgba(4, 11, 20, 0.2) 100%);
+  background:
+    radial-gradient(circle at top right, rgba(195, 135, 73, 0.22), transparent 32%),
+    linear-gradient(105deg, rgba(9, 15, 27, 0.94) 0%, rgba(12, 20, 35, 0.82) 48%, rgba(12, 20, 35, 0.35) 100%);
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 16%;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 68%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+  align-items: center;
+  gap: 42px;
+  padding-top: 48px;
 }
 
 .hero-intro {
-  min-height: 100vh;
   max-width: 760px;
-  padding-top: 48px;
 }
 
 .hero-eyebrow {
@@ -1340,6 +1370,9 @@ section,
 .hero h2 {
   margin-bottom: 14px;
   max-width: 640px;
+  font-size: 92px;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
 }
 
 .hero-role {
@@ -1357,8 +1390,8 @@ section,
 .hero-summary {
   max-width: 620px;
   margin: 18px 0 0;
-  font-size: 1.08rem;
-  line-height: 1.8;
+  font-size: 1.12rem;
+  line-height: 1.9;
   color: rgba(255, 255, 255, 0.86);
 }
 
@@ -1392,6 +1425,59 @@ section,
   font-size: 0.82rem;
   font-weight: 600;
   backdrop-filter: blur(8px);
+}
+
+.hero-spotlight-card {
+  padding: 30px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 28px 60px rgba(5, 10, 20, 0.28);
+  backdrop-filter: blur(18px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-spotlight-card h3 {
+  color: #fff;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 16px 0 14px;
+}
+
+.hero-spotlight-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.hero-spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.hero-spotlight-item {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-spotlight-kicker {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.58);
+  margin-bottom: 10px;
+}
+
+.hero-spotlight-item strong {
+  display: block;
+  color: #fff;
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .btn {
@@ -1441,6 +1527,18 @@ section,
   font-weight: 600;
 }
 
+.about.section {
+  position: relative;
+}
+
+.about.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at left top, rgba(195, 135, 73, 0.08), transparent 28%);
+  pointer-events: none;
+}
+
 .about-heading-clean {
   display: flex;
   justify-content: flex-end;
@@ -1449,8 +1547,8 @@ section,
 
 .about-photo-wrap img {
   width: 100%;
-  border-radius: 22px;
-  box-shadow: 0 18px 35px rgba(5, 13, 24, 0.14);
+  border-radius: 28px;
+  box-shadow: 0 24px 48px rgba(5, 13, 24, 0.16);
 }
 
 .about-content-clean {
@@ -1579,6 +1677,15 @@ section,
   pointer-events: none;
 }
 
+.skills-featured-card,
+.build-summary-card,
+.skill-card,
+.build-card,
+.contact .info-wrap,
+.contact .php-email-form {
+  box-shadow: 0 20px 44px rgba(15, 23, 37, 0.08);
+}
+
 .skills-featured-card > *,
 .build-summary-card > * {
   position: relative;
@@ -1638,82 +1745,100 @@ section,
   font-weight: 600;
 }
 
-.portfolio .portfolio-content {
-  border-radius: 18px;
-  box-shadow: 0 16px 34px rgba(5, 13, 24, 0.08);
+.portfolio-elegant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.portfolio-elegant-card {
   background: var(--surface-color);
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 84%);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  box-shadow: 0 18px 40px rgba(15, 23, 37, 0.08);
 }
 
-.portfolio .portfolio-content img {
-  width: 100%;
-  aspect-ratio: 4 / 4.3;
-  object-fit: cover;
+.portfolio-elegant-card:hover {
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 64%);
+  box-shadow: 0 28px 54px rgba(15, 23, 37, 0.14);
 }
 
-.portfolio .portfolio-content .portfolio-info {
-  padding: 20px;
-  background: linear-gradient(180deg, rgba(4, 11, 20, 0.05) 0%, rgba(4, 11, 20, 0.82) 68%);
+.portfolio-elegant-media {
+  position: relative;
+  overflow: hidden;
 }
 
-.portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 1.02rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  line-height: 1.35;
-  padding: 0;
-  background: transparent;
-}
-
-.portfolio .portfolio-content .portfolio-info .portfolio-stack {
+.portfolio-elegant-media::after {
+  content: "";
   position: absolute;
-  left: 20px;
-  top: 20px;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(9, 15, 27, 0.2) 100%);
+}
+
+.portfolio-elegant-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.9;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.portfolio-elegant-card:hover .portfolio-elegant-media img {
+  transform: scale(1.06);
+}
+
+.portfolio-stack {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 2;
   font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.38rem 0.72rem;
+  padding: 0.45rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
+  color: #fff;
+  background: rgba(15, 23, 37, 0.64);
+  backdrop-filter: blur(12px);
 }
 
-.portfolio .portfolio-content .portfolio-info p {
-  bottom: 24px;
-  left: 20px;
-  right: 20px;
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.86);
+.portfolio-elegant-body {
+  padding: 24px 24px 26px;
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link,
-.portfolio .portfolio-content .portfolio-info .details-link {
-  top: 18px;
-  bottom: auto;
-  width: 38px;
-  height: 38px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+.portfolio-card-index {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link {
-  left: auto;
-  right: 62px;
-  font-size: 20px;
+.portfolio-elegant-body h3 {
+  font-size: 1.8rem;
+  line-height: 1.05;
+  margin-bottom: 14px;
 }
 
-.portfolio .portfolio-content .portfolio-info .details-link {
-  left: auto;
-  right: 18px;
-  font-size: 22px;
+.portfolio-elegant-body p {
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+  margin-bottom: 20px;
+}
+
+.portfolio-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.portfolio-card-actions .btn-sm {
+  padding: 0.72rem 1rem;
+  font-size: 0.82rem;
 }
 
 .page-title .container {
@@ -1751,11 +1876,13 @@ section,
 }
 
 @media (max-width: 1199px) {
+  .hero-shell,
   .skills-showcase,
   .build-layout,
   .skills-grid,
   .build-grid,
-  .case-study-grid {
+  .case-study-grid,
+  .portfolio-elegant-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1767,10 +1894,14 @@ section,
 }
 
 @media (max-width: 767px) {
+  .hero-shell {
+    gap: 24px;
+    padding-top: 64px;
+  }
+
   .hero-intro {
     align-items: center !important;
     text-align: center;
-    padding-top: 64px;
   }
 
   .hero-actions,
@@ -1783,7 +1914,11 @@ section,
   }
 
   .hero h2 {
-    font-size: 40px;
+    font-size: 58px;
+  }
+
+  .hero-spotlight-card {
+    padding: 22px;
   }
 
   .hero p {
@@ -1811,7 +1946,11 @@ section,
     font-size: 14px;
   }
 
-  .portfolio .portfolio-content img {
-    aspect-ratio: 4 / 4.8;
+  .hero-spotlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 {
+    font-size: 40px;
   }
 }
