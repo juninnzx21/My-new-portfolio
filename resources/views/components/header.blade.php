@@ -1,4 +1,4 @@
-<header id="header" class="header dark-background d-flex flex-column " style="margin-right: 20px;">
+<header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
@@ -8,11 +8,6 @@
     <a href="{{ url('/') }}" class="logo d-flex align-items-center justify-content-center">
        <h1 class="sitename">Junior Rodrigues</h1>
     </a>
-
-    <div class="language-switch" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="en">EN</button>
-        <button type="button" class="lang-btn" data-lang="pt-BR">PT-BR</button>
-    </div>
 
     <div class="social-links text-center">
         <a target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5531993239198&amp;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
@@ -31,5 +26,10 @@
         <li><a href="{{ url('/') }}#contact"><i class="bi bi-envelope navicon"></i> <span data-i18n="nav.contact">Contact</span></a></li>
       </ul>
     </nav>
+
+    <div class="language-switch language-switch--subtle" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="pt-BR">PT-BR</button>
+    </div>
 
 </header>
