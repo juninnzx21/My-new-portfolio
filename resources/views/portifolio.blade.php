@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+    <head>      
+        <title>Portifolio Online</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-Import-default-header-portifolio />
+        
     </head>
 
 <body class="index-page">
@@ -12,7 +14,6 @@
         <x-section-hero />
         <x-section-about />
         <x-section-skills />
-        <x-section-what-i-build />
         <x-section-resume />
         <x-section-portifolio />
         <x-section-contact-me />
@@ -24,7 +25,7 @@
    
     <script>
     $('#form').submit(function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Impede o envio padrão do formulário
 
         var submitButton = $('#submit-button');
         $('.loading').removeClass('d-none');
@@ -37,11 +38,11 @@
             success: function (response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Success',
+                    title: 'Sucesso!',
                     text: response.message,
                     confirmButtonText: 'OK',
                 });
-                $('#form')[0].reset();
+                $('#form')[0].reset(); // Reseta o formulário
             },
             error: function (xhr) {
                 if (xhr.status === 422) {
@@ -49,14 +50,14 @@
                     let errorMessages = Object.values(errors).join('\n');
                     Swal.fire({
                         icon: 'error',
-                        title: 'Validation Error',
+                        title: 'Erro de Validação!',
                         text: errorMessages,
                     });
                 } else {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error',
-                        text: xhr.responseJSON?.message || 'Something went wrong. Please try again.',
+                        title: 'Erro!',
+                        text: xhr.responseJSON?.message || 'Algo deu errado. Tente novamente.',
                     });
                 }
             },
