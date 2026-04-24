@@ -22,6 +22,8 @@
         <li><a href="{{ url('/') }}" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="{{ url('/') }}#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="{{ url('/') }}#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="{{ url('/cv.html') }}"><i class="bi bi-file-person navicon"></i> Online CV</a></li>
+        <li><a href="{{ url('/Junior_Rodrigues_Professional_Summary.txt') }}" download><i class="bi bi-download navicon"></i> Download Summary</a></li>
         <li><a href="{{ url('/') }}#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="{{ url('/') }}#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>

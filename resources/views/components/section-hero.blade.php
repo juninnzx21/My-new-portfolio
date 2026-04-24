@@ -11,6 +11,10 @@
             I'm <span class="typed" data-typed-items="Developer, Full Stack Developer, PHP Developer">Developer</span>
             <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
         </p>
+        <div class="hero-actions">
+            <a href="{{ url('/cv.html') }}" class="hero-btn-primary">View Online CV</a>
+            <a href="{{ url('/Junior_Rodrigues_Professional_Summary.txt') }}" download class="hero-btn-secondary">Download Summary</a>
+        </div>
     </div>
     
 </section>

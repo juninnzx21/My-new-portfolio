@@ -1,0 +1,23 @@
+Junior Rodrigues
+Full Stack PHP/Laravel Developer
+Belo Horizonte, MG - Brazil
+Email: contatojuninnzx@gmail.com
+LinkedIn: https://www.linkedin.com/in/junior-rodrigues-68961b288/
+GitHub: https://github.com/juninnzx21
+Portfolio: https://www.juninnzxtec.com.br
+
+Professional Summary
+Full Stack PHP/Laravel Developer with hands-on experience building internal tools, CRUD systems, responsive interfaces, and database-driven applications. Strong background in PHP, Laravel, Blade, CodeIgniter, JavaScript, jQuery, Bootstrap, MySQL, MariaDB, Docker, and Git-based workflows.
+
+I also bring production support experience from IT operations, troubleshooting, preventive maintenance, and daily system reliability routines. This combination helps me ship practical solutions, debug issues quickly, and work well with real business processes.
+
+Core Strengths
+- PHP and Laravel development
+- CRUD systems and business workflows
+- Blade, Bootstrap, JavaScript, and jQuery
+- MySQL, MariaDB, and API integration
+- Bug fixing, troubleshooting, and maintenance
+- Docker, Git, GitHub, and GitLab
+
+Current Goal
+I am looking for opportunities as a Full Stack Developer, PHP Developer, or Backend-focused Web Developer where I can contribute to real products, grow with a strong team, and keep improving my delivery quality.
