@@ -15,12 +15,19 @@ class PortfolioItem extends Model
         'image_path',
         'live_url',
         'details_url',
+        'detail_category',
+        'detail_client',
+        'detail_project_date',
+        'detail_heading',
+        'detail_body',
+        'detail_images',
         'display_order',
         'is_visible',
     ];
 
     protected $casts = [
         'is_visible' => 'boolean',
+        'detail_images' => 'array',
     ];
 
     public static function defaultItems(): array
@@ -35,10 +42,28 @@ class PortfolioItem extends Model
         }
 
         foreach (self::defaultItems() as $item) {
-            self::query()->updateOrCreate(
-                ['slug' => $item['slug']],
-                $item,
-            );
+            $portfolioItem = self::query()->firstOrNew([
+                'slug' => $item['slug'],
+            ]);
+
+            if (! $portfolioItem->exists) {
+                $portfolioItem->fill($item)->save();
+                continue;
+            }
+
+            $missingValues = [];
+
+            foreach ($item as $key => $value) {
+                $currentValue = $portfolioItem->getAttribute($key);
+
+                if ($currentValue === null || $currentValue === '' || $currentValue === []) {
+                    $missingValues[$key] = $value;
+                }
+            }
+
+            if ($missingValues !== []) {
+                $portfolioItem->fill($missingValues)->save();
+            }
         }
     }
 
@@ -60,10 +85,39 @@ class PortfolioItem extends Model
 
     public function imageUrl(): string
     {
-        if (str_starts_with($this->image_path, 'http://') || str_starts_with($this->image_path, 'https://')) {
-            return $this->image_path;
+        return $this->normalizeAssetUrl($this->image_path);
+    }
+
+    public function detailImageUrls(): array
+    {
+        $detailImages = $this->detail_images;
+
+        if (! is_array($detailImages) || $detailImages === []) {
+            return [$this->imageUrl()];
         }
 
-        return asset(ltrim($this->image_path, '/'));
+        return collect($detailImages)
+            ->filter()
+            ->map(fn (string $path) => $this->normalizeAssetUrl($path))
+            ->values()
+            ->all();
+    }
+
+    protected function normalizeAssetUrl(?string $path): string
+    {
+        $path = (string) $path;
+        $version = $this->updated_at?->timestamp ?? time();
+
+        if ($path === '') {
+            return asset('assets/img/portfolio/portifolio.png').'?v='.$version;
+        }
+
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            $separator = str_contains($path, '?') ? '&' : '?';
+
+            return $path.$separator.'v='.$version;
+        }
+
+        return asset(ltrim($path, '/')).'?v='.$version;
     }
 }

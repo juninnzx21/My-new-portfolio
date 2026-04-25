@@ -77,6 +77,10 @@
                                 <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Custom image path or URL') }}</label>
                                 <input type="text" name="image_path" value="{{ old('image_path') }}" placeholder="assets/img/portfolio/example.png or https://..." class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             </div>
+                            <div class="md:col-span-2">
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail slider images') }}</label>
+                                <textarea name="detail_images_text" rows="4" placeholder="One image path or URL per line" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('detail_images_text') }}</textarea>
+                            </div>
                             <div>
                                 <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
                                 <input type="url" name="live_url" value="{{ old('live_url') }}" placeholder="https://..." class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
@@ -98,6 +102,26 @@
                             <div class="md:col-span-2">
                                 <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload image') }}</label>
                                 <input type="file" name="image_file" accept="image/*" class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail category') }}</label>
+                                <input type="text" name="detail_category" value="{{ old('detail_category') }}" placeholder="Course Catalog" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail client') }}</label>
+                                <input type="text" name="detail_client" value="{{ old('detail_client') }}" placeholder="N/A" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail project date') }}</label>
+                                <input type="text" name="detail_project_date" value="{{ old('detail_project_date') }}" placeholder="10 March, 2020" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail heading') }}</label>
+                                <input type="text" name="detail_heading" value="{{ old('detail_heading') }}" placeholder="Why this project was created" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail description') }}</label>
+                                <textarea name="detail_body" rows="6" placeholder="Write the full project description here" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('detail_body') }}</textarea>
                             </div>
                         </div>
 
@@ -124,6 +148,12 @@
                         $itemVisible = data_get($item, 'is_visible');
                         $itemLiveUrl = data_get($item, 'live_url');
                         $itemDetailsUrl = data_get($item, 'details_url');
+                        $itemDetailCategory = data_get($item, 'detail_category');
+                        $itemDetailClient = data_get($item, 'detail_client');
+                        $itemDetailProjectDate = data_get($item, 'detail_project_date');
+                        $itemDetailHeading = data_get($item, 'detail_heading');
+                        $itemDetailBody = data_get($item, 'detail_body');
+                        $itemDetailImages = collect(data_get($item, 'detail_images', []))->filter()->implode("\n");
                         $itemImage = $isPersistedModel ? $item->imageUrl() : asset(ltrim(data_get($item, 'image_path'), '/'));
                     @endphp
 
@@ -155,6 +185,7 @@
                                         <p class="truncate"><strong>{{ __('Slug:') }}</strong> {{ $itemSlug }}</p>
                                         <p class="truncate"><strong>{{ __('Live:') }}</strong> {{ $itemLiveUrl }}</p>
                                         <p class="truncate"><strong>{{ __('Details:') }}</strong> {{ $itemDetailsUrl }}</p>
+                                        <p class="truncate"><strong>{{ __('Detail category:') }}</strong> {{ $itemDetailCategory ?: 'Not set' }}</p>
                                     </div>
                                 </div>
 
@@ -197,6 +228,10 @@
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Custom image path or URL') }}</label>
                                         <input type="text" name="image_path" value="{{ old('image_path', data_get($item, 'image_path')) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
                                     </div>
+                                    <div class="md:col-span-2">
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail slider images') }}</label>
+                                        <textarea name="detail_images_text" rows="4" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>{{ old('detail_images_text', $itemDetailImages) }}</textarea>
+                                    </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
                                         <input type="url" name="live_url" value="{{ old('live_url', $itemLiveUrl) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
@@ -218,6 +253,26 @@
                                     <div class="md:col-span-2">
                                         <label for="image_file_{{ data_get($item, 'id', $itemSlug) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload new image') }}</label>
                                         <input id="image_file_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="image_file" accept="image/*" class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div>
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail category') }}</label>
+                                        <input type="text" name="detail_category" value="{{ old('detail_category', $itemDetailCategory) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div>
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail client') }}</label>
+                                        <input type="text" name="detail_client" value="{{ old('detail_client', $itemDetailClient) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div>
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail project date') }}</label>
+                                        <input type="text" name="detail_project_date" value="{{ old('detail_project_date', $itemDetailProjectDate) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div>
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail heading') }}</label>
+                                        <input type="text" name="detail_heading" value="{{ old('detail_heading', $itemDetailHeading) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail description') }}</label>
+                                        <textarea name="detail_body" rows="6" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>{{ old('detail_body', $itemDetailBody) }}</textarea>
                                     </div>
                                 </div>
 

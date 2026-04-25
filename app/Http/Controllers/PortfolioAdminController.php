@@ -6,6 +6,7 @@ use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -31,6 +32,7 @@ class PortfolioAdminController extends Controller
         $data = $this->validatePortfolioItem($request);
         $data['slug'] = $this->resolveSlug($request->input('slug'), $data['title']);
         $data['is_visible'] = $request->boolean('is_visible');
+        $data['detail_images'] = $this->extractDetailImages($request);
 
         $data['image_path'] = $this->handleImageUpload(
             $request,
@@ -52,6 +54,7 @@ class PortfolioAdminController extends Controller
 
         $data['is_visible'] = $request->boolean('is_visible');
         $data['slug'] = $portfolioItem->slug;
+        $data['detail_images'] = $this->extractDetailImages($request, $portfolioItem);
 
         $data['image_path'] = $this->handleImageUpload(
             $request,
@@ -81,6 +84,12 @@ class PortfolioAdminController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'live_url' => ['required', 'url', 'max:2048'],
             'details_url' => ['required', 'string', 'max:2048'],
+            'detail_category' => ['nullable', 'string', 'max:255'],
+            'detail_client' => ['nullable', 'string', 'max:255'],
+            'detail_project_date' => ['nullable', 'string', 'max:255'],
+            'detail_heading' => ['nullable', 'string', 'max:255'],
+            'detail_body' => ['nullable', 'string'],
+            'detail_images_text' => ['nullable', 'string'],
             'display_order' => ['required', 'integer', 'min:0'],
             'is_visible' => ['nullable', 'boolean'],
             'image_path' => ['nullable', 'string', 'max:2048'],
@@ -123,5 +132,21 @@ class PortfolioAdminController extends Controller
         $file->move($directory, $filename);
 
         return 'assets/img/portfolio/custom/'.$filename;
+    }
+
+    protected function extractDetailImages(Request $request, ?PortfolioItem $portfolioItem = null): array
+    {
+        $raw = preg_split('/\r\n|\r|\n/', (string) $request->input('detail_images_text', ''));
+        $detailImages = collect($raw)
+            ->map(fn (string $path) => trim($path))
+            ->filter()
+            ->values()
+            ->all();
+
+        if ($detailImages !== []) {
+            return $detailImages;
+        }
+
+        return Arr::wrap($portfolioItem?->detail_images ?: $request->input('image_path'));
     }
 }
