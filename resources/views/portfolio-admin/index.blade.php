@@ -205,6 +205,7 @@
                                 @csrf
                                 @if ($isPersistedModel)
                                     @method('PUT')
+                                    <input type="hidden" name="manage_detail_images" value="1">
                                 @endif
 
                                 @if ($isPersistedModel)
@@ -233,8 +234,8 @@
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Current detail slider images') }}</label>
-                                        <textarea name="detail_images_text" rows="4" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>{{ old('detail_images_text', $itemDetailImages) }}</textarea>
-                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('These are the images currently linked to the details page slider.') }}</p>
+                                        <textarea rows="4" readonly class="block w-full rounded-lg border-gray-300 bg-gray-50 text-sm text-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-900 dark:text-gray-400">{{ old('detail_images_text', $itemDetailImages) }}</textarea>
+                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Reference only. Use the image cards below to keep, remove, or replace the slider images.') }}</p>
                                     </div>
                                     @if ($itemDetailImagesArray->isNotEmpty())
                                         <div class="md:col-span-2">

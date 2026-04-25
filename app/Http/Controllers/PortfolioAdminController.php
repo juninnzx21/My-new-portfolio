@@ -37,6 +37,7 @@ class PortfolioAdminController extends Controller
         $data['image_path'] = $this->handleImageUpload(
             $request,
             $data['slug'],
+            null,
             $data['image_path'] ?? null,
         );
 
@@ -59,6 +60,7 @@ class PortfolioAdminController extends Controller
         $data['image_path'] = $this->handleImageUpload(
             $request,
             $portfolioItem->slug,
+            $portfolioItem->image_path,
             $data['image_path'] ?? null,
         );
 
@@ -90,6 +92,7 @@ class PortfolioAdminController extends Controller
             'detail_heading' => ['nullable', 'string', 'max:255'],
             'detail_body' => ['nullable', 'string'],
             'detail_images_text' => ['nullable', 'string'],
+            'manage_detail_images' => ['nullable', 'boolean'],
             'existing_detail_images' => ['nullable', 'array'],
             'existing_detail_images.*' => ['string', 'max:2048'],
             'delete_detail_images' => ['nullable', 'array'],
@@ -123,16 +126,29 @@ class PortfolioAdminController extends Controller
         return $candidate;
     }
 
-    protected function handleImageUpload(Request $request, string $slug, ?string $currentImagePath): ?string
+    protected function handleImageUpload(
+        Request $request,
+        string $slug,
+        ?string $currentImagePath,
+        ?string $requestedImagePath = null
+    ): string
     {
+        $fallbackImagePath = 'assets/img/portfolio/portifolio.png';
+        $requestedImagePath = trim((string) $requestedImagePath);
+        $currentImagePath = trim((string) $currentImagePath);
+
         if ($request->boolean('delete_main_image')) {
             $this->deleteLocalPortfolioAsset($currentImagePath);
 
-            return null;
+            return $requestedImagePath !== '' ? $requestedImagePath : $fallbackImagePath;
         }
 
         if (! $request->hasFile('image_file')) {
-            return $currentImagePath;
+            if ($requestedImagePath !== '') {
+                return $requestedImagePath;
+            }
+
+            return $currentImagePath !== '' ? $currentImagePath : $fallbackImagePath;
         }
 
         $directory = public_path('assets/img/portfolio/custom');
@@ -151,6 +167,7 @@ class PortfolioAdminController extends Controller
 
     protected function extractDetailImages(Request $request, ?PortfolioItem $portfolioItem = null): array
     {
+        $isManagedFromEditor = $request->boolean('manage_detail_images');
         $deletedDetailImages = collect($request->input('delete_detail_images', []))
             ->map(fn (string $path) => trim($path))
             ->filter()
@@ -186,6 +203,10 @@ class PortfolioAdminController extends Controller
                 ->concat($uploadedImages)
                 ->values()
                 ->all();
+        }
+
+        if ($isManagedFromEditor) {
+            return $selectedExistingImages->values()->all();
         }
 
         $raw = preg_split('/\r\n|\r|\n/', (string) $request->input('detail_images_text', ''));
