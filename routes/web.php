@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('portfolio.admin')->prefix('portfolio-admin')->name('portfolio-admin.')->group(function () {
         Route::get('/', [PortfolioAdminController::class, 'index'])->name('index');
+        Route::post('/', [PortfolioAdminController::class, 'store'])->name('store');
         Route::put('/{portfolioItem}', [PortfolioAdminController::class, 'update'])->name('update');
     });
 });
