@@ -247,20 +247,35 @@
                                                     <label class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
                                                         <img src="{{ $detailPreviewUrl }}" alt="{{ $itemTitle }}" class="h-32 w-full object-cover">
                                                         <div class="flex items-start gap-3 p-3">
-                                                            <input
-                                                                type="checkbox"
-                                                                name="existing_detail_images[]"
-                                                                value="{{ $detailImagePath }}"
-                                                                @checked(collect(old('existing_detail_images', $itemDetailImagesArray->all()))->contains($detailImagePath))
-                                                                class="mt-1 rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                                                                @disabled(! $isPersistedModel)
-                                                            >
-                                                            <span class="text-xs text-gray-600 dark:text-gray-300">{{ $detailImagePath }}</span>
+                                                            <div class="space-y-2">
+                                                                <label class="flex items-start gap-3">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="existing_detail_images[]"
+                                                                        value="{{ $detailImagePath }}"
+                                                                        @checked(collect(old('existing_detail_images', $itemDetailImagesArray->all()))->contains($detailImagePath))
+                                                                        class="mt-1 rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                                                        @disabled(! $isPersistedModel)
+                                                                    >
+                                                                    <span class="text-xs text-gray-600 dark:text-gray-300">{{ __('Keep visible') }}</span>
+                                                                </label>
+                                                                <label class="flex items-start gap-3">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="delete_detail_images[]"
+                                                                        value="{{ $detailImagePath }}"
+                                                                        class="mt-1 rounded border-rose-300 text-rose-600 shadow-sm focus:ring-rose-500"
+                                                                        @disabled(! $isPersistedModel)
+                                                                    >
+                                                                    <span class="text-xs text-rose-600 dark:text-rose-300">{{ __('Delete this image') }}</span>
+                                                                </label>
+                                                                <span class="block text-xs text-gray-500 dark:text-gray-400">{{ $detailImagePath }}</span>
+                                                            </div>
                                                         </div>
                                                     </label>
                                                 @endforeach
                                             </div>
-                                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Keep checked only the images that should continue appearing in the details slider.') }}</p>
+                                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Keep visible controls what stays in the details slider. Delete removes a custom uploaded image.') }}</p>
                                         </div>
                                     @endif
                                     <div>
@@ -286,9 +301,16 @@
                                         <input id="image_file_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="image_file" accept="image/*" class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
                                     </div>
                                     <div class="md:col-span-2">
+                                        <label class="inline-flex items-center gap-3 rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700 shadow-sm dark:border-rose-900 dark:bg-rose-950/30 dark:text-rose-300">
+                                            <input type="checkbox" name="delete_main_image" value="1" class="rounded border-rose-300 text-rose-600 shadow-sm focus:ring-rose-500" @disabled(! $isPersistedModel)>
+                                            <span>{{ __('Delete current main image') }}</span>
+                                        </label>
+                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('This removes the current uploaded main image when it is a custom file.') }}</p>
+                                    </div>
+                                    <div class="md:col-span-2">
                                         <label for="detail_image_files_{{ data_get($item, 'id', $itemSlug) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload detail slider images') }}</label>
                                         <input id="detail_image_files_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="detail_image_files[]" accept="image/*" multiple class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
-                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Selecting new files here replaces the slider images for this details page.') }}</p>
+                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('New files are added to the detail slider together with the images you kept visible.') }}</p>
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail category') }}</label>

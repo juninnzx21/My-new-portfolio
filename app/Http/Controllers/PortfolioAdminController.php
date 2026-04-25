@@ -92,10 +92,13 @@ class PortfolioAdminController extends Controller
             'detail_images_text' => ['nullable', 'string'],
             'existing_detail_images' => ['nullable', 'array'],
             'existing_detail_images.*' => ['string', 'max:2048'],
+            'delete_detail_images' => ['nullable', 'array'],
+            'delete_detail_images.*' => ['string', 'max:2048'],
             'detail_image_files' => ['nullable', 'array'],
             'detail_image_files.*' => ['image', 'max:5120'],
             'display_order' => ['required', 'integer', 'min:0'],
             'is_visible' => ['nullable', 'boolean'],
+            'delete_main_image' => ['nullable', 'boolean'],
             'image_path' => ['nullable', 'string', 'max:2048'],
             'image_file' => ['nullable', 'image', 'max:5120'],
         ]);
@@ -122,6 +125,12 @@ class PortfolioAdminController extends Controller
 
     protected function handleImageUpload(Request $request, string $slug, ?string $currentImagePath): ?string
     {
+        if ($request->boolean('delete_main_image')) {
+            $this->deleteLocalPortfolioAsset($currentImagePath);
+
+            return null;
+        }
+
         if (! $request->hasFile('image_file')) {
             return $currentImagePath;
         }
@@ -135,15 +144,25 @@ class PortfolioAdminController extends Controller
         $filename = $slug.'-'.time().'.'.$file->getClientOriginalExtension();
         $file->move($directory, $filename);
 
+        $this->deleteLocalPortfolioAsset($currentImagePath);
+
         return 'assets/img/portfolio/custom/'.$filename;
     }
 
     protected function extractDetailImages(Request $request, ?PortfolioItem $portfolioItem = null): array
     {
-        $selectedExistingImages = collect($request->input('existing_detail_images', []))
+        $deletedDetailImages = collect($request->input('delete_detail_images', []))
             ->map(fn (string $path) => trim($path))
             ->filter()
             ->values();
+
+        $selectedExistingImages = collect($request->input('existing_detail_images', []))
+            ->map(fn (string $path) => trim($path))
+            ->filter()
+            ->reject(fn (string $path) => $deletedDetailImages->contains($path))
+            ->values();
+
+        $deletedDetailImages->each(fn (string $path) => $this->deleteLocalPortfolioAsset($path));
 
         if ($request->hasFile('detail_image_files')) {
             $directory = public_path('assets/img/portfolio/custom/details');
@@ -185,5 +204,26 @@ class PortfolioAdminController extends Controller
         }
 
         return Arr::wrap($portfolioItem?->detail_images ?: $request->input('image_path'));
+    }
+
+    protected function deleteLocalPortfolioAsset(?string $path): void
+    {
+        $path = trim((string) $path);
+
+        if ($path === '' || str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return;
+        }
+
+        $normalized = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, ltrim($path, '/\\'));
+        $fullPath = public_path($normalized);
+        $customBase = public_path('assets/img/portfolio/custom');
+
+        if (! str_starts_with($fullPath, $customBase)) {
+            return;
+        }
+
+        if (is_file($fullPath)) {
+            @unlink($fullPath);
+        }
     }
 }
