@@ -16,6 +16,7 @@
         <x-section-skills />
         <x-section-resume />
         <x-section-portifolio />
+        <x-section-repository-archive />
         <x-section-contact-me />
     </main>
 
