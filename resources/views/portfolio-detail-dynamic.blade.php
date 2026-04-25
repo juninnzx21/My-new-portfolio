@@ -31,32 +31,52 @@
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4">
                     <div class="col-lg-8">
-                        <div class="portfolio-details-slider swiper init-swiper">
-                            <script type="application/json" class="swiper-config">
-                                {
-                                  "loop": true,
-                                  "speed": 600,
-                                  "autoplay": {
-                                    "delay": 5000
-                                  },
-                                  "slidesPerView": "auto",
-                                  "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                  }
-                                }
-                            </script>
-
-                            <div class="swiper-wrapper align-items-center">
-                                @foreach ($portfolioItem->detailImageUrls() as $imageUrl)
-                                    <div class="swiper-slide">
-                                        <img src="{{ $imageUrl }}" alt="{{ $portfolioItem->title }}">
+                        @if ($portfolioItem->shouldRenderLivePreview())
+                            <div class="portfolio-live-preview" data-aos="fade-up" data-aos-delay="120">
+                                <div class="portfolio-live-preview__header">
+                                    <div>
+                                        <span class="portfolio-live-preview__eyebrow">Live system preview</span>
+                                        <h3>Current interface pulled from the project</h3>
                                     </div>
-                                @endforeach
+                                    <a href="{{ $portfolioItem->live_url }}" target="_blank" rel="noopener noreferrer" class="portfolio-live-preview__link">
+                                        Open live project
+                                    </a>
+                                </div>
+                                <iframe
+                                    src="{{ $portfolioItem->live_url }}"
+                                    title="{{ $portfolioItem->title }} live preview"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
                             </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
+                        @else
+                            <div class="portfolio-details-slider swiper init-swiper">
+                                <script type="application/json" class="swiper-config">
+                                    {
+                                      "loop": true,
+                                      "speed": 600,
+                                      "autoplay": {
+                                        "delay": 5000
+                                      },
+                                      "slidesPerView": "auto",
+                                      "pagination": {
+                                        "el": ".swiper-pagination",
+                                        "type": "bullets",
+                                        "clickable": true
+                                      }
+                                    }
+                                </script>
+
+                                <div class="swiper-wrapper align-items-center">
+                                    @foreach ($portfolioItem->detailImageUrls() as $imageUrl)
+                                        <div class="swiper-slide">
+                                            <img src="{{ $imageUrl }}" alt="{{ $portfolioItem->title }}">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-lg-4">
@@ -85,6 +105,72 @@
     <div id="preloader"></div>
     <x-import-default-vendor-js/>
     <x-footer-portifolio />
+    <style>
+        .portfolio-live-preview {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #0b1220;
+            box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+        }
+
+        .portfolio-live-preview__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.92));
+            color: #f8fafc;
+        }
+
+        .portfolio-live-preview__eyebrow {
+            display: inline-block;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #38bdf8;
+        }
+
+        .portfolio-live-preview__header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-live-preview__link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.14);
+            color: #e0f2fe;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .portfolio-live-preview iframe {
+            display: block;
+            width: 100%;
+            min-height: 760px;
+            border: 0;
+            background: #020617;
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-live-preview__header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .portfolio-live-preview iframe {
+                min-height: 620px;
+            }
+        }
+    </style>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Online Portfolio</title>
+  <title>Market Decision AI | Portfolio Details</title>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
   <main class="main">
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Portfolio Details</h1>
+        <h1 class="mb-2 mb-lg-0">Market Decision AI</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="https://www.juninnzxtec.com.br">Home</a></li>
@@ -54,31 +54,21 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-2.jpg" alt="">
+            <div class="portfolio-live-preview">
+              <div class="portfolio-live-preview__header">
+                <div>
+                  <span class="portfolio-live-preview__eyebrow">Live system preview</span>
+                  <h3>Current interface pulled from the project</h3>
+                  <p>This preview stays aligned with the system itself instead of relying only on old static images.</p>
                 </div>
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-3.jpg" alt="">
-                </div>
+                <a href="https://roboiqopition.juninnzxtec.com.br/" target="_blank" rel="noopener noreferrer" class="portfolio-live-preview__link">Open live project</a>
               </div>
-              <div class="swiper-pagination"></div>
+              <iframe
+                src="https://roboiqopition.juninnzxtec.com.br/"
+                title="Market Decision AI live preview"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
           <div class="col-lg-4">
@@ -96,6 +86,7 @@
               <p>Market Decision AI was created as a decision-support platform for trading analysis, focused on realistic risk, signal validation, operational timing, and live market intelligence.</p>
               <p>The stack combines a Vue frontend with a FastAPI backend, structured engines for technical and historical scoring, WebSocket live board updates, and a modular analysis pipeline.</p>
               <p>It demonstrates product thinking, data presentation, API integration, real-time dashboards, and a stronger system design than a simple static trading page.</p>
+              <p>The detail page now points directly to the live system preview so the portfolio reflects the current product state instead of outdated screenshots.</p>
             </div>
           </div>
         </div>
@@ -116,5 +107,76 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js?v=20260424-2"></script>
+  <style>
+    .portfolio-live-preview {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0b1220;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .portfolio-live-preview__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.92));
+      color: #f8fafc;
+    }
+
+    .portfolio-live-preview__eyebrow {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #38bdf8;
+    }
+
+    .portfolio-live-preview__header h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: #f8fafc;
+    }
+
+    .portfolio-live-preview__header p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .portfolio-live-preview__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      color: #e0f2fe;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .portfolio-live-preview iframe {
+      display: block;
+      width: 100%;
+      min-height: 760px;
+      border: 0;
+      background: #020617;
+    }
+
+    @media (max-width: 992px) {
+      .portfolio-live-preview__header {
+        flex-direction: column;
+      }
+
+      .portfolio-live-preview iframe {
+        min-height: 620px;
+      }
+    }
+  </style>
 </body>
 </html>

@@ -103,6 +103,23 @@ class PortfolioItem extends Model
             ->all();
     }
 
+    public function hasConfiguredDetailImages(): bool
+    {
+        return is_array($this->detail_images) && collect($this->detail_images)->filter()->isNotEmpty();
+    }
+
+    public function shouldRenderLivePreview(): bool
+    {
+        if ($this->hasConfiguredDetailImages()) {
+            return false;
+        }
+
+        $liveUrl = (string) $this->live_url;
+
+        return $liveUrl !== ''
+            && (str_contains($liveUrl, '.juninnzxtec.com.br') || str_contains($liveUrl, 'juninnzxtec.com.br/'));
+    }
+
     protected function normalizeAssetUrl(?string $path): string
     {
         $path = (string) $path;
