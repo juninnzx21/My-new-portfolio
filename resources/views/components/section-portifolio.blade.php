@@ -77,7 +77,7 @@
               <div class="portfolio-info">
                 <h4>Fleet Platform</h4>
                 <p>Meta Locadora Control Center</p>
-                <a href="https://controledefrotas.juninnzxtec.com.br/login" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://controledefrotas.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-5.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
@@ -101,7 +101,7 @@
               <div class="portfolio-info">
                 <h4>Trading Intelligence</h4>
                 <p>Market Decision AI</p>
-                <a href="https://www.juninnzxtec.com.br/all-portifolios/trade-intelligence-hub/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://roboiqopition.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-8.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
@@ -115,6 +115,54 @@
                 <p>WordPress Personal Portfolio</p>
                 <a href="http://my-portolio.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
                 <a href="projeto-7.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>API Service</h4>
+                <p>Products API Mirror</p>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/api/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://www.juninnzxtec.com.br/all-portifolios/api/" title="Open live project" target="_blank" rel="noopener noreferrer" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Landing Page</h4>
+                <p>Vite Demo Website</p>
+                <a href="http://vite.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="http://vite.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/Portifolio2.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Marketing Website</h4>
+                <p>Positivus Website</p>
+                <a href="http://positivus.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="http://positivus.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          {{-- <!-- End Portfolio Item --> --}}
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div class="portfolio-content h-100">
+              <img src="assets/img/portfolio/portifolio.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Test Environment</h4>
+                <p>Positivus Test Website</p>
+                <a href="http://positivustest.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="preview-link"><i class="bi bi-box-arrow-up-right"></i></a>
+                <a href="http://positivustest.juninnzxtec.com.br/" title="Open live project" target="_blank" rel="noopener noreferrer" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
