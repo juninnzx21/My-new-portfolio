@@ -16,11 +16,17 @@
             $eyebrow = data_get($item, 'eyebrow');
             $title = data_get($item, 'title');
             $liveUrl = data_get($item, 'live_url');
-            $detailsUrl = data_get($item, 'details_url');
+            $detailsUrl = method_exists($item, 'detailPageUrl')
+              ? $item->detailPageUrl()
+              : (data_get($item, 'slug')
+                ? url('/portfolio-details/'.data_get($item, 'slug'))
+                : data_get($item, 'details_url'));
             $imagePath = method_exists($item, 'imageUrl')
               ? $item->imageUrl()
               : asset(ltrim(data_get($item, 'image_path'), '/'));
-            $isExternalDetails = str_starts_with($detailsUrl, 'http://') || str_starts_with($detailsUrl, 'https://');
+            $detailsHost = parse_url($detailsUrl, PHP_URL_HOST);
+            $appHost = parse_url(url('/'), PHP_URL_HOST);
+            $isExternalDetails = $detailsHost !== null && $detailsHost !== $appHost;
           @endphp
 
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">

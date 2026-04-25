@@ -36,5 +36,8 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 
+Route::get('/portfolio-details/{portfolioItem:slug}', [PortfolioSiteController::class, 'detail'])
+    ->name('portfolio.detail');
+
 Route::get('/{detailPath}', [PortfolioSiteController::class, 'detailByPath'])
     ->where('detailPath', 'projeto(?:-[A-Za-z0-9]+(?:\.html)?)?');

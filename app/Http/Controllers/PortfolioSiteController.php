@@ -15,6 +15,13 @@ class PortfolioSiteController extends Controller
         ]);
     }
 
+    public function detail(PortfolioItem $portfolioItem)
+    {
+        return view('portfolio-detail-dynamic', [
+            'portfolioItem' => $portfolioItem,
+        ]);
+    }
+
     public function detailByPath(string $detailPath)
     {
         $detailPath = trim($detailPath, '/');
@@ -28,8 +35,6 @@ class PortfolioSiteController extends Controller
             ->orWhere('details_url', '/'.$detailPath)
             ->firstOrFail();
 
-        return view('portfolio-detail-dynamic', [
-            'portfolioItem' => $portfolioItem,
-        ]);
+        return redirect()->route('portfolio.detail', $portfolioItem);
     }
 }

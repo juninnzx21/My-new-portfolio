@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class PortfolioItem extends Model
 {
@@ -118,6 +119,22 @@ class PortfolioItem extends Model
 
         return $liveUrl !== ''
             && (str_contains($liveUrl, '.juninnzxtec.com.br') || str_contains($liveUrl, 'juninnzxtec.com.br/'));
+    }
+
+    public function detailPageUrl(): string
+    {
+        return route('portfolio.detail', $this);
+    }
+
+    public function normalizedDetailAlias(): ?string
+    {
+        $detailsUrl = trim((string) $this->details_url);
+
+        if ($detailsUrl === '' || Str::startsWith($detailsUrl, ['http://', 'https://'])) {
+            return null;
+        }
+
+        return ltrim($detailsUrl, '/');
     }
 
     protected function normalizeAssetUrl(?string $path): string
