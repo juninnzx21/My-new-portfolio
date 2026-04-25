@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-4">
             <div>
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                     {{ __('Portfolio Admin') }}
                 </h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    {{ __('Manage which portfolio cards appear on the main portfolio and which image each card uses.') }}
+                    {{ __('Choose which portfolio cards stay visible and expand each item only when you need to edit it.') }}
                 </p>
             </div>
             <a href="{{ url('/') }}" class="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700">
@@ -27,39 +27,66 @@
                 </div>
             @endif
 
-            <div class="grid gap-6">
+            <div class="grid gap-5 lg:grid-cols-2">
                 @foreach ($portfolioItems as $item)
                     @php
                         $isPersistedModel = is_object($item) && method_exists($item, 'getKey');
                         $itemEyebrow = data_get($item, 'eyebrow');
                         $itemTitle = data_get($item, 'title');
+                        $itemSlug = data_get($item, 'slug');
+                        $itemOrder = data_get($item, 'display_order');
+                        $itemVisible = data_get($item, 'is_visible');
+                        $itemLiveUrl = data_get($item, 'live_url');
+                        $itemDetailsUrl = data_get($item, 'details_url');
                         $itemImage = $isPersistedModel ? $item->imageUrl() : asset(ltrim(data_get($item, 'image_path'), '/'));
                     @endphp
 
-                    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                        <form method="POST" action="{{ $isPersistedModel ? route('portfolio-admin.update', $item) : '#' }}" enctype="multipart/form-data" class="grid gap-0 lg:grid-cols-[260px_1fr]">
-                            @csrf
-                            @if ($isPersistedModel)
-                                @method('PUT')
-                            @endif
-
-                            <div class="border-b border-gray-200 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-900/40 lg:border-b-0 lg:border-r">
-                                <div class="aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+                    <details class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition open:shadow-md dark:border-gray-700 dark:bg-gray-800">
+                        <summary class="list-none cursor-pointer p-4 sm:p-5">
+                            <div class="flex items-start gap-4">
+                                <div class="h-24 w-24 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
                                     <img src="{{ $itemImage }}" alt="{{ $itemTitle }}" class="h-full w-full object-cover">
                                 </div>
-                                <div class="mt-4 flex items-center gap-3">
-                                    <input id="visible-{{ data_get($item, 'id', data_get($item, 'slug')) }}" type="checkbox" name="is_visible" value="1" @checked(data_get($item, 'is_visible')) class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" @disabled(! $isPersistedModel)>
-                                    <label for="visible-{{ data_get($item, 'id', data_get($item, 'slug')) }}" class="text-sm font-medium text-gray-700 dark:text-gray-200">
-                                        {{ __('Show on main portfolio') }}
-                                    </label>
+
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <span class="inline-flex rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
+                                            {{ $itemEyebrow }}
+                                        </span>
+                                        <span class="inline-flex rounded-full px-3 py-1 text-xs font-semibold {{ $itemVisible ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700' }}">
+                                            {{ $itemVisible ? __('Visible') : __('Hidden') }}
+                                        </span>
+                                        <span class="inline-flex rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                            {{ __('Order') }}: {{ $itemOrder }}
+                                        </span>
+                                    </div>
+
+                                    <h3 class="mt-3 truncate text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                        {{ $itemTitle }}
+                                    </h3>
+
+                                    <div class="mt-2 grid gap-2 text-sm text-gray-500 dark:text-gray-400">
+                                        <p class="truncate"><strong>{{ __('Slug:') }}</strong> {{ $itemSlug }}</p>
+                                        <p class="truncate"><strong>{{ __('Live:') }}</strong> {{ $itemLiveUrl }}</p>
+                                        <p class="truncate"><strong>{{ __('Details:') }}</strong> {{ $itemDetailsUrl }}</p>
+                                    </div>
                                 </div>
-                                <div class="mt-4">
-                                    <label for="image_file_{{ data_get($item, 'id', data_get($item, 'slug')) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload new image') }}</label>
-                                    <input id="image_file_{{ data_get($item, 'id', data_get($item, 'slug')) }}" type="file" name="image_file" accept="image/*" class="block w-full text-sm text-gray-700 dark:text-gray-300" @disabled(! $isPersistedModel)>
+
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition group-open:rotate-45 dark:border-gray-700 dark:text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4.5v15m7.5-7.5h-15" />
+                                    </svg>
                                 </div>
                             </div>
+                        </summary>
 
-                            <div class="p-5">
+                        <div class="border-t border-gray-200 bg-gray-50/70 p-4 dark:border-gray-700 dark:bg-gray-900/30 sm:p-5">
+                            <form method="POST" action="{{ $isPersistedModel ? route('portfolio-admin.update', $item) : '#' }}" enctype="multipart/form-data" class="space-y-5">
+                                @csrf
+                                @if ($isPersistedModel)
+                                    @method('PUT')
+                                @endif
+
                                 <div class="grid gap-4 md:grid-cols-2">
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Label') }}</label>
@@ -75,36 +102,45 @@
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
-                                        <input type="url" name="live_url" value="{{ old('live_url', data_get($item, 'live_url')) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                        <input type="url" name="live_url" value="{{ old('live_url', $itemLiveUrl) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Details URL') }}</label>
-                                        <input type="text" name="details_url" value="{{ old('details_url', data_get($item, 'details_url')) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                        <input type="text" name="details_url" value="{{ old('details_url', $itemDetailsUrl) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Display order') }}</label>
-                                        <input type="number" name="display_order" min="0" value="{{ old('display_order', data_get($item, 'display_order')) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                        <input type="number" name="display_order" min="0" value="{{ old('display_order', $itemOrder) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
                                     </div>
-                                    <div>
-                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Slug') }}</label>
-                                        <input type="text" value="{{ data_get($item, 'slug') }}" disabled class="block w-full rounded-lg border-gray-200 bg-gray-100 text-sm text-gray-500 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400">
+                                    <div class="flex items-end">
+                                        <label class="inline-flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">
+                                            <input id="visible-{{ data_get($item, 'id', $itemSlug) }}" type="checkbox" name="is_visible" value="1" @checked($itemVisible) class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" @disabled(! $isPersistedModel)>
+                                            <span>{{ __('Show on main portfolio') }}</span>
+                                        </label>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label for="image_file_{{ data_get($item, 'id', $itemSlug) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload new image') }}</label>
+                                        <input id="image_file_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="image_file" accept="image/*" class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
                                     </div>
                                 </div>
 
                                 @if ($isPersistedModel)
-                                    <div class="mt-5 flex justify-end">
+                                    <div class="flex items-center justify-between gap-3 border-t border-gray-200 pt-4 dark:border-gray-700">
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                                            {{ __('Edit, save, and the main portfolio will use these values.') }}
+                                        </p>
                                         <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
                                             {{ __('Save item') }}
                                         </button>
                                     </div>
                                 @else
-                                    <div class="mt-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                                    <div class="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
                                         {{ __('The portfolio table is not migrated yet. Deploy and run the migration before editing these items.') }}
                                     </div>
                                 @endif
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
+                    </details>
                 @endforeach
             </div>
         </div>
