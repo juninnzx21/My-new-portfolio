@@ -9,7 +9,7 @@
   </div>
 
   <div class="container">
-    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+    <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
       <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
         @foreach ($portfolioItems as $item)
           @php

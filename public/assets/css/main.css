@@ -1032,10 +1032,19 @@ section,
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
+  display: flex;
+  min-height: 100%;
+  border-radius: 16px;
+  background: #0f172a;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
 }
 
 .portfolio .portfolio-content img {
   transition: 0.3s;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
 }
 
 .portfolio .portfolio-content .portfolio-info {
@@ -1046,6 +1055,14 @@ section,
   transition: all ease-in-out 0.3s;
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
+}
+
+.portfolio .portfolio-item {
+  display: flex;
+}
+
+.portfolio .portfolio-item .portfolio-content {
+  width: 100%;
 }
 
 .portfolio .portfolio-content .portfolio-info h4 {
