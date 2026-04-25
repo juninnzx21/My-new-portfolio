@@ -173,6 +173,17 @@
                                     @method('PUT')
                                 @endif
 
+                                @if ($isPersistedModel)
+                                    <div class="flex items-center justify-between gap-3 rounded-xl border border-indigo-100 bg-white px-4 py-3 shadow-sm dark:border-indigo-800 dark:bg-gray-800">
+                                        <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
+                                            {{ __('Editing this portfolio item.') }}
+                                        </p>
+                                        <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+                                            {{ __('Save changes') }}
+                                        </button>
+                                    </div>
+                                @endif
+
                                 <div class="grid gap-4 md:grid-cols-2">
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Label') }}</label>
@@ -216,7 +227,7 @@
                                             {{ __('Edit, save, and the main portfolio will use these values.') }}
                                         </p>
                                         <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                            {{ __('Save item') }}
+                                            {{ __('Save changes') }}
                                         </button>
                                     </div>
                                 @else
