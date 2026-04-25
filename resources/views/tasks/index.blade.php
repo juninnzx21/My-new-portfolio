@@ -11,6 +11,13 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="container mt-5 bg-white">
                     <div class="row">
+                        @if (auth()->user()?->email === config('portfolio.admin_email'))
+                            <div class="col-md-12 m-5 p-4 border border-primary rounded" style="background-color: #eef6ff;">
+                                <h2>Portfolio Administration</h2>
+                                <p>Use the admin panel to choose which portfolio cards appear on the main website and which image each card uses.</p>
+                                <a href="{{ route('portfolio-admin.index') }}" class="btn btn-primary mt-2">Open Portfolio Admin</a>
+                            </div>
+                        @endif
                         
                         <div class="col-md-12 m-5 p-5">
                             <h2>Criar Nova Categoria</h2>

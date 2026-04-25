@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Definição do conjunto de caracteres -->
     <meta charset="UTF-8" />
-    
-    <!-- Ícone da aba do navegador -->
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
-    
-    <!-- Configuração para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Título da página -->
     <title>Product Catalog Dashboard</title>
+    <script>
+      (() => {
+        const originalFetch = window.fetch.bind(window);
+        const oldApiUrl = 'https://api.juninnzxtec.com.br/api/produtos.php';
+        const newApiUrl = 'https://www.juninnzxtec.com.br/all-portifolios/api/produtos.php';
+
+        window.fetch = (input, init) => {
+          if (typeof input === 'string' && input.startsWith(oldApiUrl)) {
+            input = input.replace(oldApiUrl, newApiUrl);
+          } else if (input instanceof Request && input.url.startsWith(oldApiUrl)) {
+            input = new Request(input.url.replace(oldApiUrl, newApiUrl), input);
+          }
+
+          return originalFetch(input, init);
+        };
+      })();
+    </script>
     <script type="module" crossorigin src="./assets/index-CUXddofP.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CJGeFYCa.css">
   </head>
   <body>
-    <!-- Elemento principal onde o Vue irá montar a aplicação -->
     <div id="app"></div>
-    
-    <!-- Importa o script principal do Vue com suporte a módulos ES -->
   </body>
 </html>

@@ -64,4 +64,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function avatarUrl(): string
+    {
+        return $this->profile_photo_url;
+    }
 }
