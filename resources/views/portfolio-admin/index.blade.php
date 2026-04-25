@@ -78,8 +78,9 @@
                                 <input type="text" name="image_path" value="{{ old('image_path') }}" placeholder="assets/img/portfolio/example.png or https://..." class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             </div>
                             <div class="md:col-span-2">
-                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail slider images') }}</label>
-                                <textarea name="detail_images_text" rows="4" placeholder="One image path or URL per line" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('detail_images_text') }}</textarea>
+                                <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload detail slider images') }}</label>
+                                <input type="file" name="detail_image_files[]" accept="image/*" multiple class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+                                <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('You can select multiple images. They will be used in the portfolio details slider.') }}</p>
                             </div>
                             <div>
                                 <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
@@ -229,8 +230,9 @@
                                         <input type="text" name="image_path" value="{{ old('image_path', data_get($item, 'image_path')) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail slider images') }}</label>
+                                        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Current detail slider images') }}</label>
                                         <textarea name="detail_images_text" rows="4" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>{{ old('detail_images_text', $itemDetailImages) }}</textarea>
+                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('These are the images currently linked to the details page slider.') }}</p>
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
@@ -253,6 +255,11 @@
                                     <div class="md:col-span-2">
                                         <label for="image_file_{{ data_get($item, 'id', $itemSlug) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload new image') }}</label>
                                         <input id="image_file_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="image_file" accept="image/*" class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label for="detail_image_files_{{ data_get($item, 'id', $itemSlug) }}" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Upload detail slider images') }}</label>
+                                        <input id="detail_image_files_{{ data_get($item, 'id', $itemSlug) }}" type="file" name="detail_image_files[]" accept="image/*" multiple class="block w-full rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" @disabled(! $isPersistedModel)>
+                                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Selecting new files here replaces the slider images for this details page.') }}</p>
                                     </div>
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Detail category') }}</label>

@@ -90,6 +90,8 @@ class PortfolioAdminController extends Controller
             'detail_heading' => ['nullable', 'string', 'max:255'],
             'detail_body' => ['nullable', 'string'],
             'detail_images_text' => ['nullable', 'string'],
+            'detail_image_files' => ['nullable', 'array'],
+            'detail_image_files.*' => ['image', 'max:5120'],
             'display_order' => ['required', 'integer', 'min:0'],
             'is_visible' => ['nullable', 'boolean'],
             'image_path' => ['nullable', 'string', 'max:2048'],
@@ -136,6 +138,26 @@ class PortfolioAdminController extends Controller
 
     protected function extractDetailImages(Request $request, ?PortfolioItem $portfolioItem = null): array
     {
+        if ($request->hasFile('detail_image_files')) {
+            $directory = public_path('assets/img/portfolio/custom/details');
+            if (! is_dir($directory)) {
+                mkdir($directory, 0755, true);
+            }
+
+            $baseSlug = $portfolioItem?->slug ?: Str::slug((string) $request->input('slug', 'portfolio-item'));
+
+            return collect($request->file('detail_image_files'))
+                ->filter()
+                ->map(function ($file, int $index) use ($directory, $baseSlug) {
+                    $filename = $baseSlug.'-detail-'.time().'-'.$index.'.'.$file->getClientOriginalExtension();
+                    $file->move($directory, $filename);
+
+                    return 'assets/img/portfolio/custom/details/'.$filename;
+                })
+                ->values()
+                ->all();
+        }
+
         $raw = preg_split('/\r\n|\r|\n/', (string) $request->input('detail_images_text', ''));
         $detailImages = collect($raw)
             ->map(fn (string $path) => trim($path))
