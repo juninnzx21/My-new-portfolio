@@ -154,6 +154,8 @@
                         $itemDetailProjectDate = data_get($item, 'detail_project_date');
                         $itemDetailHeading = data_get($item, 'detail_heading');
                         $itemDetailBody = data_get($item, 'detail_body');
+                        $itemDetailImagesArray = collect(data_get($item, 'detail_images', []))->filter()->values();
+                        $itemDetailImageUrls = method_exists($item, 'detailImageUrls') ? $item->detailImageUrls() : [];
                         $itemDetailImages = collect(data_get($item, 'detail_images', []))->filter()->implode("\n");
                         $itemImage = $isPersistedModel ? $item->imageUrl() : asset(ltrim(data_get($item, 'image_path'), '/'));
                     @endphp
@@ -234,6 +236,33 @@
                                         <textarea name="detail_images_text" rows="4" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>{{ old('detail_images_text', $itemDetailImages) }}</textarea>
                                         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('These are the images currently linked to the details page slider.') }}</p>
                                     </div>
+                                    @if ($itemDetailImagesArray->isNotEmpty())
+                                        <div class="md:col-span-2">
+                                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Choose which current slider images stay visible') }}</label>
+                                            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                                @foreach ($itemDetailImagesArray as $detailImagePath)
+                                                    @php
+                                                        $detailPreviewUrl = $itemDetailImageUrls[$loop->index] ?? asset(ltrim($detailImagePath, '/'));
+                                                    @endphp
+                                                    <label class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                                                        <img src="{{ $detailPreviewUrl }}" alt="{{ $itemTitle }}" class="h-32 w-full object-cover">
+                                                        <div class="flex items-start gap-3 p-3">
+                                                            <input
+                                                                type="checkbox"
+                                                                name="existing_detail_images[]"
+                                                                value="{{ $detailImagePath }}"
+                                                                @checked(collect(old('existing_detail_images', $itemDetailImagesArray->all()))->contains($detailImagePath))
+                                                                class="mt-1 rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                                                @disabled(! $isPersistedModel)
+                                                            >
+                                                            <span class="text-xs text-gray-600 dark:text-gray-300">{{ $detailImagePath }}</span>
+                                                        </div>
+                                                    </label>
+                                                @endforeach
+                                            </div>
+                                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ __('Keep checked only the images that should continue appearing in the details slider.') }}</p>
+                                        </div>
+                                    @endif
                                     <div>
                                         <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{{ __('Live URL') }}</label>
                                         <input type="url" name="live_url" value="{{ old('live_url', $itemLiveUrl) }}" class="block w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500" @disabled(! $isPersistedModel)>

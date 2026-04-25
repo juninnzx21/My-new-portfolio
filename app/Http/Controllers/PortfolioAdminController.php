@@ -90,6 +90,8 @@ class PortfolioAdminController extends Controller
             'detail_heading' => ['nullable', 'string', 'max:255'],
             'detail_body' => ['nullable', 'string'],
             'detail_images_text' => ['nullable', 'string'],
+            'existing_detail_images' => ['nullable', 'array'],
+            'existing_detail_images.*' => ['string', 'max:2048'],
             'detail_image_files' => ['nullable', 'array'],
             'detail_image_files.*' => ['image', 'max:5120'],
             'display_order' => ['required', 'integer', 'min:0'],
@@ -138,6 +140,11 @@ class PortfolioAdminController extends Controller
 
     protected function extractDetailImages(Request $request, ?PortfolioItem $portfolioItem = null): array
     {
+        $selectedExistingImages = collect($request->input('existing_detail_images', []))
+            ->map(fn (string $path) => trim($path))
+            ->filter()
+            ->values();
+
         if ($request->hasFile('detail_image_files')) {
             $directory = public_path('assets/img/portfolio/custom/details');
             if (! is_dir($directory)) {
@@ -146,7 +153,7 @@ class PortfolioAdminController extends Controller
 
             $baseSlug = $portfolioItem?->slug ?: Str::slug((string) $request->input('slug', 'portfolio-item'));
 
-            return collect($request->file('detail_image_files'))
+            $uploadedImages = collect($request->file('detail_image_files'))
                 ->filter()
                 ->map(function ($file, int $index) use ($directory, $baseSlug) {
                     $filename = $baseSlug.'-detail-'.time().'-'.$index.'.'.$file->getClientOriginalExtension();
@@ -154,6 +161,10 @@ class PortfolioAdminController extends Controller
 
                     return 'assets/img/portfolio/custom/details/'.$filename;
                 })
+                ->values();
+
+            return $selectedExistingImages
+                ->concat($uploadedImages)
                 ->values()
                 ->all();
         }
@@ -167,6 +178,10 @@ class PortfolioAdminController extends Controller
 
         if ($detailImages !== []) {
             return $detailImages;
+        }
+
+        if ($selectedExistingImages->isNotEmpty()) {
+            return $selectedExistingImages->all();
         }
 
         return Arr::wrap($portfolioItem?->detail_images ?: $request->input('image_path'));
