@@ -1,0 +1,13 @@
+# Portfolio content release
+
+Adds JARVIS Home AI using an actual screenshot of its public installation page and fills missing descriptions for the existing fleet and Market Decision AI projects. Corrects the Product Catalog Dashboard demo link to its verified live Vue application. Existing cards, images, styles and hidden records remain intact. The six hidden records are not republished. No private repository URL or infrastructure inventory is included.
+
+This repository's main branch is behind the deployed site's CMS implementation. These scripts target the **existing deployed Laravel application with `App\Models\PortfolioItem`**, not a clean installation of the older main branch. Do not replace the deployed application with this checkout. No migrations or framework changes are required.
+
+After content approval, copy this directory outside the public web root and copy the single WebP asset into the application's matching public path. Set `PORTFOLIO_APP_ROOT` to the application root if the release directory is elsewhere. Run `php portfolio-release/apply.php` first (read-only dry run). Then run `php portfolio-release/apply.php --apply` only after reviewing its output. The script uses the existing Eloquent model, checks previous values, creates a private backup before changing data, and updates in a transaction. Repeating an already applied release is a no-op. Concurrent edits cause an abort.
+
+The deployment uses existing bind-mounted files; no container restart is needed. Validate the homepage contains eight cards and the new detail route displays the correct image. Check both updated detail pages, mobile layout and all new links. A clean frontend build is not needed for this data-and-image-only release.
+
+For rollback, run `php portfolio-release/rollback.php --restore BACKUP_PATH` with the backup path reported by apply. It refuses to overwrite later edits. It restores existing descriptions and hides the JARVIS card without deleting records or images. The JARVIS detail URL remains accessible under the existing site's route policy; the content is already public. This rollback is not suitable for withdrawing private content.
+
+Screenshot: real JARVIS installation page, captured 15 October 2026 (America/Chicago), converted to WebP. No generated interface, customer data, authenticated dashboard or credentials are included. The project integrates third-party tools; their authorship is explicitly preserved. Device installs and investment performance were not tested.

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "insert": [
+    {
+      "slug": "jarvis-home-ai",
+      "eyebrow": "AI · Web · Desktop · Android",
+      "title": "JARVIS Home AI",
+      "image_path": "assets/img/portfolio/custom/jarvis-install-20261015.webp",
+      "live_url": "https://jarvis.juninnzxtec.com.br/install",
+      "details_url": "portfolio-details/jarvis-home-ai",
+      "detail_category": "AI Assistant · Web · Desktop · Android",
+      "detail_client": "Personal project",
+      "detail_project_date": "",
+      "detail_heading": "An assistant for everyday tasks and connected services",
+      "detail_body": "JARVIS brings chat, voice, tasks, routines and connected services into one personal assistant. Its web application includes modules for documents, memory and integrations, with confirmation flows for sensitive actions.\n\nThe frontend uses React, TypeScript and Vite. The API uses Node.js, Express, Prisma and PostgreSQL. The project also includes an Electron desktop companion, a browser-installable PWA and an Android wrapper.\n\nOpenAI, n8n, Evolution API, Home Assistant and Piper are third-party services or tools integrated by the project; they are not software developed from scratch as part of JARVIS.\n\nStatus: the web application is deployed. Windows and Android packages are available in the public repository release; installation on physical devices was not validated in this portfolio review. The image shows the real public installation page.\n\nSource code: https://github.com/juninnzx21/meujarvis",
+      "detail_images": [
+        "assets/img/portfolio/custom/jarvis-install-20261015.webp"
+      ],
+      "display_order": 85,
+      "is_visible": true
+    }
+  ],
+  "update": [
+    {
+      "slug": "product-catalog-dashboard",
+      "live_url": "https://vite.juninnzxtec.com.br/",
+      "expected": {
+        "live_url": "https://www.juninnzxtec.com.br/all-portifolios/projectvite/"
+      }
+    },
+    {
+      "slug": "meta-locadora-control-center",
+      "detail_category": "Fleet Management · Web",
+      "detail_heading": "Fleet and rental operations in one application",
+      "detail_body": "This application brings together vehicles, customers, rental contracts, maintenance, fines, checklists and financial entries. Its code includes reporting and integration modules for fleet operations.\n\nThe deployed application uses PHP, Laravel, Livewire, Alpine.js and Tailwind CSS. The repository also contains Electron and Capacitor dependencies for desktop and mobile packaging; device installation was not validated in this portfolio review.\n\nAutomation and messaging use integrations with third-party tools such as n8n and Evolution API. These tools are not presented as original software developed for this project.\n\nStatus: deployed web application. Existing portfolio images are retained; authenticated business workflows were not exercised during this review.",
+      "expected": {
+        "detail_category": null,
+        "detail_heading": null,
+        "detail_body": null
+      }
+    },
+    {
+      "slug": "market-decision-ai",
+      "detail_category": "Market Analysis · Web · API",
+      "detail_heading": "A workspace for market data and analysis",
+      "detail_body": "Market Decision AI brings market snapshots, monitored assets, signals and economic events into a web dashboard. Its backend contains separate services for analysis, backtesting and forward testing, with background workers for data collection.\n\nThe frontend uses Vue, TypeScript and Vite. The backend uses Python, FastAPI, SQLAlchemy and Pydantic, with PostgreSQL and Redis. Docker separates the web application, API, workers and data services.\n\nStatus: deployed application. This review confirmed the code and running services, but did not validate investment performance or execute financial transactions. Existing portfolio images are retained.\n\nSource code: https://github.com/juninnzx21/trade-intelligence-hub",
+      "expected": {
+        "detail_category": null,
+        "detail_heading": null,
+        "detail_body": null
+      }
+    }
+  ]
+}
