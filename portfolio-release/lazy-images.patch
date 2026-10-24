@@ -1,0 +1,12 @@
+diff --git a/resources/views/components/section-portifolio.blade.php b/resources/views/components/section-portifolio.blade.php
+--- a/resources/views/components/section-portifolio.blade.php
++++ b/resources/views/components/section-portifolio.blade.php
+@@ -37,7 +37,7 @@
+ 
+           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+             <div class="portfolio-content h-100">
+-              <img src="{{ $imagePath }}" class="img-fluid" alt="{{ $title }}">
++              <img src="{{ $imagePath }}" class="img-fluid" alt="{{ $title }}" loading="lazy" decoding="async">
+               <div class="portfolio-info">
+                 <h4>{{ $eyebrow }}</h4>
+                 <p>{{ $title }}</p>
